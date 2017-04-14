@@ -1,0 +1,598 @@
+{
+  "albums" : {
+    "href" : "https://api.spotify.com/v1/search?query=overexposed&type=album&offset=0&limit=20",
+    "items" : [ {
+      "album_type" : "album",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/04gDigrS5kc9YWfZHwBETP"
+        },
+        "href" : "https://api.spotify.com/v1/artists/04gDigrS5kc9YWfZHwBETP",
+        "id" : "04gDigrS5kc9YWfZHwBETP",
+        "name" : "Maroon 5",
+        "type" : "artist",
+        "uri" : "spotify:artist:04gDigrS5kc9YWfZHwBETP"
+      } ],
+      "available_markets" : [ "CA", "MX", "US" ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/5x7JzoE4A3DwwU6FPt8qws"
+      },
+      "href" : "https://api.spotify.com/v1/albums/5x7JzoE4A3DwwU6FPt8qws",
+      "id" : "5x7JzoE4A3DwwU6FPt8qws",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/5966f58ee5ba6e91c94a77031367e91d388e3c46",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/0acfbf61599f57d5c8a005497a3ceb0751145d05",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/773c126f178ec3a8b8b5dadb845f5600d26af2d4",
+        "width" : 64
+      } ],
+      "name" : "Overexposed",
+      "type" : "album",
+      "uri" : "spotify:album:5x7JzoE4A3DwwU6FPt8qws"
+    }, {
+      "album_type" : "album",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/04gDigrS5kc9YWfZHwBETP"
+        },
+        "href" : "https://api.spotify.com/v1/artists/04gDigrS5kc9YWfZHwBETP",
+        "id" : "04gDigrS5kc9YWfZHwBETP",
+        "name" : "Maroon 5",
+        "type" : "artist",
+        "uri" : "spotify:artist:04gDigrS5kc9YWfZHwBETP"
+      } ],
+      "available_markets" : [ "CA", "MX", "US" ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/2pjfMmH52fryXVQuWTWOgP"
+      },
+      "href" : "https://api.spotify.com/v1/albums/2pjfMmH52fryXVQuWTWOgP",
+      "id" : "2pjfMmH52fryXVQuWTWOgP",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/fd2836f8eb1be62841ae280fa30795676ab205bc",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/1e47f6b9f809ee7222862bd79ebc819c0ed6ff92",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/03aee0dc3d9a117ff3e77af732b049ad0505df6d",
+        "width" : 64
+      } ],
+      "name" : "Overexposed (Deluxe)",
+      "type" : "album",
+      "uri" : "spotify:album:2pjfMmH52fryXVQuWTWOgP"
+    }, {
+      "album_type" : "album",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/04gDigrS5kc9YWfZHwBETP"
+        },
+        "href" : "https://api.spotify.com/v1/artists/04gDigrS5kc9YWfZHwBETP",
+        "id" : "04gDigrS5kc9YWfZHwBETP",
+        "name" : "Maroon 5",
+        "type" : "artist",
+        "uri" : "spotify:artist:04gDigrS5kc9YWfZHwBETP"
+      } ],
+      "available_markets" : [ "CA", "US" ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/7i1Ej2Ix9aIiLKqhNwAB2l"
+      },
+      "href" : "https://api.spotify.com/v1/albums/7i1Ej2Ix9aIiLKqhNwAB2l",
+      "id" : "7i1Ej2Ix9aIiLKqhNwAB2l",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/37b459258fec07bd76b6b9ec142e504925764fe9",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/a164c373f4bdee0ec7223a3de5a7bc126d318a54",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/351ba9608d907a175a4796bee5a68c18faa9b773",
+        "width" : 64
+      } ],
+      "name" : "Overexposed (Deluxe)",
+      "type" : "album",
+      "uri" : "spotify:album:7i1Ej2Ix9aIiLKqhNwAB2l"
+    }, {
+      "album_type" : "album",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/04gDigrS5kc9YWfZHwBETP"
+        },
+        "href" : "https://api.spotify.com/v1/artists/04gDigrS5kc9YWfZHwBETP",
+        "id" : "04gDigrS5kc9YWfZHwBETP",
+        "name" : "Maroon 5",
+        "type" : "artist",
+        "uri" : "spotify:artist:04gDigrS5kc9YWfZHwBETP"
+      } ],
+      "available_markets" : [ "CA", "US" ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/3XGBx5OsOELJAWa1vE7N2b"
+      },
+      "href" : "https://api.spotify.com/v1/albums/3XGBx5OsOELJAWa1vE7N2b",
+      "id" : "3XGBx5OsOELJAWa1vE7N2b",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/37b459258fec07bd76b6b9ec142e504925764fe9",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/a164c373f4bdee0ec7223a3de5a7bc126d318a54",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/351ba9608d907a175a4796bee5a68c18faa9b773",
+        "width" : 64
+      } ],
+      "name" : "Overexposed Commentary",
+      "type" : "album",
+      "uri" : "spotify:album:3XGBx5OsOELJAWa1vE7N2b"
+    }, {
+      "album_type" : "album",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/04gDigrS5kc9YWfZHwBETP"
+        },
+        "href" : "https://api.spotify.com/v1/artists/04gDigrS5kc9YWfZHwBETP",
+        "id" : "04gDigrS5kc9YWfZHwBETP",
+        "name" : "Maroon 5",
+        "type" : "artist",
+        "uri" : "spotify:artist:04gDigrS5kc9YWfZHwBETP"
+      } ],
+      "available_markets" : [ "CA", "US" ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/3r3flRqc5pQozLGZ3GyqTe"
+      },
+      "href" : "https://api.spotify.com/v1/albums/3r3flRqc5pQozLGZ3GyqTe",
+      "id" : "3r3flRqc5pQozLGZ3GyqTe",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/068b064fd62454b782e45b83c916f2c4d826021c",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/e47bcc74892612dccc9fb624d5b9f6bf9696c0db",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/d055d1652c2ae03455ebf11c92993fb668f07b80",
+        "width" : 64
+      } ],
+      "name" : "Overexposed",
+      "type" : "album",
+      "uri" : "spotify:album:3r3flRqc5pQozLGZ3GyqTe"
+    }, {
+      "album_type" : "album",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/0Y2tgcJdamwlQDZ6HwecWb"
+        },
+        "href" : "https://api.spotify.com/v1/artists/0Y2tgcJdamwlQDZ6HwecWb",
+        "id" : "0Y2tgcJdamwlQDZ6HwecWb",
+        "name" : "Alex Faith",
+        "type" : "artist",
+        "uri" : "spotify:artist:0Y2tgcJdamwlQDZ6HwecWb"
+      }, {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/5Q45hW4q5wKLjtnJlSgeq0"
+        },
+        "href" : "https://api.spotify.com/v1/artists/5Q45hW4q5wKLjtnJlSgeq0",
+        "id" : "5Q45hW4q5wKLjtnJlSgeq0",
+        "name" : "Dre Murray",
+        "type" : "artist",
+        "uri" : "spotify:artist:5Q45hW4q5wKLjtnJlSgeq0"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "SE", "SG", "SK", "SV", "TR", "TW", "US", "UY" ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/1jOkPYukmgNfcbP98OSlrf"
+      },
+      "href" : "https://api.spotify.com/v1/albums/1jOkPYukmgNfcbP98OSlrf",
+      "id" : "1jOkPYukmgNfcbP98OSlrf",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/8a75e9c5a3c86b426cd959ac85e76e2d54fb326e",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/a44499083c2d0154babff4037f932fc619ec36ca",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/5b9e8a672b9999ccd0aedf4ac4558c7b951d0bc7",
+        "width" : 64
+      } ],
+      "name" : "Southern Lights: Overexposed",
+      "type" : "album",
+      "uri" : "spotify:album:1jOkPYukmgNfcbP98OSlrf"
+    }, {
+      "album_type" : "single",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/4VmzranU5eYRup4jkktK6U"
+        },
+        "href" : "https://api.spotify.com/v1/artists/4VmzranU5eYRup4jkktK6U",
+        "id" : "4VmzranU5eYRup4jkktK6U",
+        "name" : "Denia",
+        "type" : "artist",
+        "uri" : "spotify:artist:4VmzranU5eYRup4jkktK6U"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "SE", "SG", "SK", "SV", "TR", "TW", "US", "UY" ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/3mu2vD6WVPr9pxGQ4xWHLs"
+      },
+      "href" : "https://api.spotify.com/v1/albums/3mu2vD6WVPr9pxGQ4xWHLs",
+      "id" : "3mu2vD6WVPr9pxGQ4xWHLs",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/5f0a4c9ee02e353b0431147fe4a4de3d9a75fa9e",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/84e038d6e62ce25fd7af9ebeed4d3b45d4a40d99",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/18206e3b53316e141a2b874304797eb1d30959c0",
+        "width" : 64
+      } ],
+      "name" : "Overexposed",
+      "type" : "album",
+      "uri" : "spotify:album:3mu2vD6WVPr9pxGQ4xWHLs"
+    }, {
+      "album_type" : "single",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/6WFOaTBKHXzxIxnML9KTXx"
+        },
+        "href" : "https://api.spotify.com/v1/artists/6WFOaTBKHXzxIxnML9KTXx",
+        "id" : "6WFOaTBKHXzxIxnML9KTXx",
+        "name" : "Jackson Wilson",
+        "type" : "artist",
+        "uri" : "spotify:artist:6WFOaTBKHXzxIxnML9KTXx"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "SE", "SG", "SK", "SV", "TR", "TW", "US", "UY" ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/6xDz4KnLJwrwzQaPLf8zrB"
+      },
+      "href" : "https://api.spotify.com/v1/albums/6xDz4KnLJwrwzQaPLf8zrB",
+      "id" : "6xDz4KnLJwrwzQaPLf8zrB",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/281a869e1c1ef346bf008fa7190f229dcaa066a0",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/a3ad6c345506ecfb902aa7e93b4e67b4ec9cf1dc",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/dfd373ae37cb0099f88c60000fd077487f0a10b5",
+        "width" : 64
+      } ],
+      "name" : "Overexposed",
+      "type" : "album",
+      "uri" : "spotify:album:6xDz4KnLJwrwzQaPLf8zrB"
+    }, {
+      "album_type" : "album",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/4DdvGj5RVAwrkvbFSNeOF2"
+        },
+        "href" : "https://api.spotify.com/v1/artists/4DdvGj5RVAwrkvbFSNeOF2",
+        "id" : "4DdvGj5RVAwrkvbFSNeOF2",
+        "name" : "Milow the Girl",
+        "type" : "artist",
+        "uri" : "spotify:artist:4DdvGj5RVAwrkvbFSNeOF2"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "SE", "SG", "SK", "SV", "TR", "TW", "US", "UY" ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/63qdM9MhtuQ1oeeiINHPZe"
+      },
+      "href" : "https://api.spotify.com/v1/albums/63qdM9MhtuQ1oeeiINHPZe",
+      "id" : "63qdM9MhtuQ1oeeiINHPZe",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/6cb3262cbef27985518bf014d60f90077f57b398",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/1a327de4dab21dbee946ee6d566c57e27c5bc6b7",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/aa3f357335d82e4b01a28a460621998f0d7d480b",
+        "width" : 64
+      } ],
+      "name" : "Overexposed",
+      "type" : "album",
+      "uri" : "spotify:album:63qdM9MhtuQ1oeeiINHPZe"
+    }, {
+      "album_type" : "single",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/5HydVvU98cVWguCYzh7WbA"
+        },
+        "href" : "https://api.spotify.com/v1/artists/5HydVvU98cVWguCYzh7WbA",
+        "id" : "5HydVvU98cVWguCYzh7WbA",
+        "name" : "Andrew Lang",
+        "type" : "artist",
+        "uri" : "spotify:artist:5HydVvU98cVWguCYzh7WbA"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "SE", "SG", "SK", "SV", "TR", "TW", "US", "UY" ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/0oJKRrUF1mPzpZsAH1m8Oh"
+      },
+      "href" : "https://api.spotify.com/v1/albums/0oJKRrUF1mPzpZsAH1m8Oh",
+      "id" : "0oJKRrUF1mPzpZsAH1m8Oh",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/c4a87d117f766cb4a78db1e7a055370b554914ac",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/2781508e3162b29db2b334d2842d4f8aa0b75760",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/e877e101a7eb710f6ffe7cbb138b793d2a576a60",
+        "width" : 64
+      } ],
+      "name" : "Overexposed",
+      "type" : "album",
+      "uri" : "spotify:album:0oJKRrUF1mPzpZsAH1m8Oh"
+    }, {
+      "album_type" : "single",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/434AIs2qYptNr3FFegjQaK"
+        },
+        "href" : "https://api.spotify.com/v1/artists/434AIs2qYptNr3FFegjQaK",
+        "id" : "434AIs2qYptNr3FFegjQaK",
+        "name" : "Ashley Leone",
+        "type" : "artist",
+        "uri" : "spotify:artist:434AIs2qYptNr3FFegjQaK"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "SE", "SG", "SK", "SV", "TR", "TW", "US", "UY" ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/1t86JwxuWjmFZY3txRWvph"
+      },
+      "href" : "https://api.spotify.com/v1/albums/1t86JwxuWjmFZY3txRWvph",
+      "id" : "1t86JwxuWjmFZY3txRWvph",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/fff28d77c2b09043c4ffe9d9861454b865f4fd65",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/1f459f682b861b2fd21331e495dded5221d8fef3",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/75251336b01d9c94762efbd563cd4c12e5d04c09",
+        "width" : 64
+      } ],
+      "name" : "Overexposed",
+      "type" : "album",
+      "uri" : "spotify:album:1t86JwxuWjmFZY3txRWvph"
+    }, {
+      "album_type" : "album",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/3O5lQVlnMOjjoY8JNzsA6G"
+        },
+        "href" : "https://api.spotify.com/v1/artists/3O5lQVlnMOjjoY8JNzsA6G",
+        "id" : "3O5lQVlnMOjjoY8JNzsA6G",
+        "name" : "Blackmail",
+        "type" : "artist",
+        "uri" : "spotify:artist:3O5lQVlnMOjjoY8JNzsA6G"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "SE", "SG", "SK", "SV", "TR", "TW", "US", "UY" ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/78ca713fWwexk6AzDlG4DI"
+      },
+      "href" : "https://api.spotify.com/v1/albums/78ca713fWwexk6AzDlG4DI",
+      "id" : "78ca713fWwexk6AzDlG4DI",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/c24a45fc3ef810fa7f69f82a2cf4bc422144389c",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/7ddc666d7ca5bb04e2d47fcbd624a5a882d85262",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/9fa95613d5b40a4587547b33ce1ea6d84fb356f5",
+        "width" : 64
+      } ],
+      "name" : "Overexposed",
+      "type" : "album",
+      "uri" : "spotify:album:78ca713fWwexk6AzDlG4DI"
+    }, {
+      "album_type" : "album",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/4ZrPiphhzppoCCDJcIZJ8v"
+        },
+        "href" : "https://api.spotify.com/v1/artists/4ZrPiphhzppoCCDJcIZJ8v",
+        "id" : "4ZrPiphhzppoCCDJcIZJ8v",
+        "name" : "Angel Tazari",
+        "type" : "artist",
+        "uri" : "spotify:artist:4ZrPiphhzppoCCDJcIZJ8v"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "SE", "SG", "SK", "SV", "TR", "TW", "US", "UY" ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/1oR53EuGMzu6mkkhgEYUMj"
+      },
+      "href" : "https://api.spotify.com/v1/albums/1oR53EuGMzu6mkkhgEYUMj",
+      "id" : "1oR53EuGMzu6mkkhgEYUMj",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/4538f444b793175617a0766020010ce5e00e524f",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/83765b8dcf5127c0acff6194a90c725d830b4a0c",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/6d667c6024dce91f2c87a496f42a2bd9199c9406",
+        "width" : 64
+      } ],
+      "name" : "OverExposed",
+      "type" : "album",
+      "uri" : "spotify:album:1oR53EuGMzu6mkkhgEYUMj"
+    }, {
+      "album_type" : "single",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1pbxx4SUqyKSUvmMm6poTr"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1pbxx4SUqyKSUvmMm6poTr",
+        "id" : "1pbxx4SUqyKSUvmMm6poTr",
+        "name" : "Osaka Motel",
+        "type" : "artist",
+        "uri" : "spotify:artist:1pbxx4SUqyKSUvmMm6poTr"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "SE", "SG", "SK", "SV", "TR", "TW", "US", "UY" ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/4LkpwbCpNgCPjBcUZ2ggeS"
+      },
+      "href" : "https://api.spotify.com/v1/albums/4LkpwbCpNgCPjBcUZ2ggeS",
+      "id" : "4LkpwbCpNgCPjBcUZ2ggeS",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/aa505124ffb1c376d691bffb4ab430df1c935d5c",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/82e589d69bbdd1c6e131edc70eeba1ac1a50a1b6",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/6d74cfddaeea84796c924b9b2ee7140162a6686f",
+        "width" : 64
+      } ],
+      "name" : "Overexposed German Haircuts",
+      "type" : "album",
+      "uri" : "spotify:album:4LkpwbCpNgCPjBcUZ2ggeS"
+    }, {
+      "album_type" : "single",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/6TiiRjEGrQEhsclZISFAz1"
+        },
+        "href" : "https://api.spotify.com/v1/artists/6TiiRjEGrQEhsclZISFAz1",
+        "id" : "6TiiRjEGrQEhsclZISFAz1",
+        "name" : "Roby Moss",
+        "type" : "artist",
+        "uri" : "spotify:artist:6TiiRjEGrQEhsclZISFAz1"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "SE", "SG", "SK", "SV", "TR", "TW", "US", "UY" ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/18XCQGXz8XIQVbIcVfw5Oi"
+      },
+      "href" : "https://api.spotify.com/v1/albums/18XCQGXz8XIQVbIcVfw5Oi",
+      "id" : "18XCQGXz8XIQVbIcVfw5Oi",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/1164157c74810bfae48ad08f46673cdcc925e76a",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/3b8b28da3069b5572c8076dbb03adcb17d997b4a",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/5826226330f58f9cff7470a48009ba9db2fe2524",
+        "width" : 64
+      } ],
+      "name" : "Overexposed (Radio Edit)",
+      "type" : "album",
+      "uri" : "spotify:album:18XCQGXz8XIQVbIcVfw5Oi"
+    }, {
+      "album_type" : "album",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/4ZrPiphhzppoCCDJcIZJ8v"
+        },
+        "href" : "https://api.spotify.com/v1/artists/4ZrPiphhzppoCCDJcIZJ8v",
+        "id" : "4ZrPiphhzppoCCDJcIZJ8v",
+        "name" : "Angel Tazari",
+        "type" : "artist",
+        "uri" : "spotify:artist:4ZrPiphhzppoCCDJcIZJ8v"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "SE", "SG", "SK", "SV", "TR", "TW", "US", "UY" ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/2byrGbmTOJLfvZkAzbKvlM"
+      },
+      "href" : "https://api.spotify.com/v1/albums/2byrGbmTOJLfvZkAzbKvlM",
+      "id" : "2byrGbmTOJLfvZkAzbKvlM",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/9e7d1d0bb9c230981b9fba510bce255d9253b124",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/ce3a20ddf34217b2a5d6f93e90ae7a6952d8f50d",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/018d25688d69462058b1c2e1726d22f6f77502da",
+        "width" : 64
+      } ],
+      "name" : "From OverExposed To Fine Print",
+      "type" : "album",
+      "uri" : "spotify:album:2byrGbmTOJLfvZkAzbKvlM"
+    }, {
+      "album_type" : "album",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/4ZrPiphhzppoCCDJcIZJ8v"
+        },
+        "href" : "https://api.spotify.com/v1/artists/4ZrPiphhzppoCCDJcIZJ8v",
+        "id" : "4ZrPiphhzppoCCDJcIZJ8v",
+        "name" : "Angel Tazari",
+        "type" : "artist",
+        "uri" : "spotify:artist:4ZrPiphhzppoCCDJcIZJ8v"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "SE", "SG", "SK", "SV", "TR", "TW", "US", "UY" ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/7FARP7qg8ibNiUMUOXfabF"
+      },
+      "href" : "https://api.spotify.com/v1/albums/7FARP7qg8ibNiUMUOXfabF",
+      "id" : "7FARP7qg8ibNiUMUOXfabF",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/4f171c334f383b605dcdb6751c2853b841f47285",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/53fff07ee5aecd45edef039303fcd3e149e97920",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/e2b7ec206b147e305207b0d8de9ad57651834033",
+        "width" : 64
+      } ],
+      "name" : "From Overexposed to Fine Print",
+      "type" : "album",
+      "uri" : "spotify:album:7FARP7qg8ibNiUMUOXfabF"
+    } ],
+    "limit" : 20,
+    "next" : null,
+    "offset" : 0,
+    "previous" : null,
+    "total" : 17
+  }
+}

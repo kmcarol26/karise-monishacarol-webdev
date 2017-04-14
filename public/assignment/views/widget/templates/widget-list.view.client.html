@@ -1,0 +1,113 @@
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-text pull-left">
+            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+        </div>
+        <div class="navbar-text pull-right">
+            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">
+                <span class="glyphicon glyphicon-plus"></span>
+            </a>
+        </div>
+
+        <div class="navbar-header">
+            <a id="header-col" class="navbar-brand" href="#">Widgets</a>
+        </div>
+    </div>
+</nav>
+
+<div  class="container-fluid" >
+
+    <div id="widget-list" wbdv-sortable=""  >
+    <div  ng-repeat="widget in model.widgets">
+        {{model.widget}}
+        <div ng-switch="widget.type">
+            <div class="jga-toolbar">
+
+                <a id="t-dec"
+                   href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                    <span class="glyphicon glyphicon-cog"></span>
+
+                </a>
+
+                <a>
+                    <span class="glyphicon glyphicon-align-justify"></span>
+                </a>
+            </div>
+            <div ng-switch-when="HEADER">
+                <h1 ng-if="widget.size == 1">{{widget.text}}</h1>
+                <h2 ng-if="widget.size == 2">{{widget.text}}</h2>
+                <h3 ng-if="widget.size == 3">{{widget.text}}</h3>
+                <h4 ng-if="widget.size == 4">{{widget.text}}</h4>
+                <h5 ng-if="widget.size == 5">{{widget.text}}</h5>
+                <h6 ng-if="widget.size == 6">{{widget.text}}</h6>
+            </div>
+            <div ng-switch-when="IMAGE">
+                <img ng-src="{{widget.url}}" width="{{widget.width}}"/>
+            </div>
+            <div ng-switch-when="YOUTUBE" class="youtube-widget">
+                <iframe width="100%" ng-src="{{model.doYouTrustUrl(widget.url)}}" frameborder="0"
+                        allowfullscreen></iframe>
+                <!--  {{widget.width}}-->
+            </div>
+            <div ng-switch-when="HTML" >
+               <div ng-bind-html="model.doYouTrustHtml(widget.text)"></div>
+
+            </div>
+
+
+            <div ng-switch-when="INPUT">
+                <div ng-if="widget.formatted" text-angular ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],
+        [                       'ul','ol'],['justifyLeft','justifyCenter','justifyRight','justifyFull'],
+        [                       'indent','outdent'],['html']]" ng-model="widget.text"></div>
+                <input ng-if="!widget.formatted && (!widget.rows || widget.rows===1)"
+                       placeholder="{{widget.placeholder}}" class="form-control"/>
+                <textarea ng-if="!widget.formatted && (widget.rows > 1)"
+                          rows="{{widget.rows}}" placeholder="{{widget.placeholder}}"
+                          class="form-control">{{widget.text}}</textarea>
+            </div>
+
+        </div>
+
+    </div>
+        </div>
+    <div class="bottom-pad"></div>
+</div>
+
+
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="row container-fluid">
+        <div class="col-xs-9">
+            <div class="navbar-text pull-left">
+                <a href="widget-list.view.client.html">
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                </a>
+            </div>
+
+
+            <a class="navbar-brand" href="#">
+
+                <span class="glyphicon glyphicon-triangle-right"></span>
+
+
+            </a>
+        </div>
+
+
+        <div class="col-xs-3">
+
+            <div class="navbar-text pull-right">
+                <a href="#/user/{{model.userId}}">
+                    <span class="glyphicon glyphicon-user "></span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+

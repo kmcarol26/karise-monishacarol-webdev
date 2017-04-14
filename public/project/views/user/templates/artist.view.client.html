@@ -1,0 +1,68 @@
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="header-nightsky">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <a  class="navbar-brand" href="#/user/model.userId/home">Muse</a>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+
+                <div class="collapse navbar-collapse" id="myNavbar">
+
+                    <ul class="nav navbar-nav navbar-right">
+
+
+                        <li><a href="" ng-click="model.logout()" >Logout</a></li>
+                        <li class="visible-xs" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+
+                                <li><a href="" ng-click="model.logout()" >Logout</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav></div>
+</nav>
+
+<div class="container">
+    <div class="container">
+        <img id="artist-img" src="{{model.artist.images[0].url}}" ></img>
+    </div>
+    <div id="top-pad-1"class="container">
+
+   <h1 style="font-weight: bold"> {{model.artistName}}</h1>
+    </div>
+
+    <div id="artist-info" class="container">
+    {{model.artistInfo}}
+    </div>
+    <div class="container">
+   <h2 style="font-weight: bold"> Albums</h2>
+    <ol>
+    <div id="top-pad-1" ng-repeat="album in model.albums.items">
+        <div id="top-pad-1" class="row">
+
+                <li id="list-css">
+
+                   <div class="col-xs-3"> <img id="album-img1" src="{{album.images[0].url}}"></img></div>
+                   <h3 id="album-name" class="col-xs-9"><a href="" ng-click="model.getAlbumPage(album.id)"> {{album.name}}</a></h3>
+                </li>
+
+        </div>
+</br>
+        </br>
+    </div>
+    </ol>
+        </div>
+
+</div>

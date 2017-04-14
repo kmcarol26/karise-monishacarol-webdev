@@ -1,0 +1,120 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="header-nightsky">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <a  class="navbar-brand" href="#/user/model.userId/home">Muse</a>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+
+                <div class="collapse navbar-collapse" id="myNavbar">
+
+                    <ul class="nav navbar-nav navbar-right">
+
+
+                        <li><a href="" ng-click="model.logout()" >Logout</a></li>
+                        <li class="visible-xs" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+
+                                <li><a href="" ng-click="model.logout()" >Logout</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav></div>
+</nav>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="fb-profile">
+          <!--  <img align="left" class="fb-image-lg" src="../../../img/music-header.jpg" alt="Profile image example"/>-->
+            <div id="top-pad">
+               <!-- <img src="{{model.user.img}}" class="avatar img-circle img-thumbnail" alt="No profile image">-->
+            <img align="left" class="fb-image-profile thumbnail" src="{{model.friend.img}}" alt="No profile image"/>
+            <div class="fb-profile-text">
+                <h1>{{model.friend.firstName}} {{model.friend.lastName}}</h1>
+            </div>
+
+                <span ng-if="model.following == false">
+                <button  class="btn btn-success" ng-click="model.follow()">Follow</button>
+                    </span>
+                <span ng-if="model.following == true"  >
+                   <button class="btn btn-success" ng-click="model.unfollow()">Unfollow</button>
+                </span>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- /container fluid-->
+<div class="container" id="top-pad" ng-init="tab='about'">
+    <div class="col-sm-8">
+
+        <div data-spy="scroll" class="tabbable-panel">
+            <div class="tabbable-line">
+                <ul class="nav nav-tabs ">
+                    <li ng-class="{'active': tab=='about'}">
+                        <a href="" ng-click="tab='about'">
+                            About Me </a>
+                    </li>
+                    <li ng-class="{'active': tab=='basic'}">
+                        <a href="" ng-click="tab='basic'">
+                            Basic Info</a>
+                    </li>
+
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_default_1" ng-show="tab=='about'">
+                        {{model.friend.about}}
+
+                    </div>
+                    <div class="tab-pane" id="tab_default_2" ng-show="tab=='basic'">
+                        basic info
+
+                    </div>
+
+                    <div class="tab-pane" id="tab_default_4">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-sm-4">
+
+        <div class="panel panel-warning">
+            <div class="panel-heading">Playlist</div>
+
+            <div class="panel-body">
+<ol>
+                <li ng-repeat="item in model.friend.playlist">
+                 <i>{{item.song}}</i> by
+
+                    <span ng-repeat="artist in item.artists">
+                       <a href="" ng-click="model.getArtistPage(artist.id)"> {{artist.name}}</a>
+                        </span>
+
+
+                </li>
+</ol>
+
+    </div>
+        </div>
+    </div>
+</div>

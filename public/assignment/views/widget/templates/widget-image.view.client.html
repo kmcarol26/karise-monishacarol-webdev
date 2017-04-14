@@ -1,0 +1,110 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="row container-fluid">
+        <div class="col-xs-9">
+            <div class="navbar-text pull-left">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </div>
+
+
+            <a id="header-col" class="navbar-brand" href="#">Widget Edit</a>
+        </div>
+
+
+        <div class="col-xs-3">
+
+            <div class="navbar-text pull-right">
+                <a ng-click="model.updateWidget(model.widget)">
+                    <span class="glyphicon glyphicon glyphicon-ok"></span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+<div class="container" id="profile-form">
+    <div class="form-group">
+    <label for="name">Name</label>
+    <input ng-model="model.widget.name"
+           class="form-control"
+           id="name"
+           placeholder="My Image ">
+        </div>
+    <div class="form-group">
+    <label for="description">Text</label>
+    <input ng-model="model.widget.text"
+           class="form-control"
+           id="description"
+           placeholder="This is my image"></input>
+    </div>
+
+    <div class="form-group">
+    <label for="url">URL</label>
+    <input ng-model="model.widget.url"
+           class="form-control"
+           id="url"
+           placeholder="https://i.kinja-img.com/gawker-media/image"></input>
+    </div>
+
+    <div class="form-group">
+    <label for="width">Width</label>
+    <input ng-model="model.widget.width"
+           class="form-control"
+           id="width"
+           placeholder="100%"></input>
+    </div>
+
+    <div class="form-group">
+        <form action="/api/upload"  method="post" enctype="multipart/form-data">
+            <input  name="myFile"   type="file" class="form-control"/>
+            <input  name="width"    value="{{model.widget.width}}" style="display: none"/>
+            <input  name="widgetId" value="{{model.widget._id}}"   style="display: none"/>
+            <input  name="pageId" value="{{model.pageId}}"   style="display: none"/>
+            <input  name="websiteId" value="{{model.websiteId}}"   style="display: none"/>
+            <input  name="userId" value="{{model.userId}}"   style="display: none"/>
+            <button type="submit"   class="btn btn-block btn-primary">Upload Image</button>
+
+        </form>
+    </div>
+    <div id="web-new">
+
+        <a class="btn btn-primary btn-block"
+            href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}/search">
+            Search
+        </a>
+    </div>
+
+
+
+    <a href="" class="btn btn-danger btn-block">Delete</a>
+    </form>
+
+    </div>
+<!--
+    <div id="web-new">
+
+        <a class="btn btn-primary btn-block" type="submit">
+            Upload Image
+        </a>
+    </div>
+
+    -->
+
+
+
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid ">
+        <div class="row navbar-text pull-right">
+            <div class="col-xs-12">
+                <a href="#/user/{{model.userId}}">
+                    <span class="glyphicon glyphicon-user pull-right"></span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+

@@ -1,0 +1,87 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-text pull-left">
+            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+        </div>
+        <div class="navbar-header">
+            <a id="header-col" class="navbar-brand no-left-padding no-left-margin">
+                Choose Widget
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid" id="top-left-pad">
+
+    <div class="row" id="web-new">
+        <div class="col-xs-11">
+            <div ng-click="model.createWidget('HEADER')">
+                <a id="t-dec">
+                    Header
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-xs-11" id="web-new">
+            <div ng-click="model.createWidget('IMAGE')">
+                <a id="t-dec">
+                    Image
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-xs-11" id="web-new">
+            <div ng-click="model.createWidget('YOUTUBE')">
+                <a id="t-dec">
+                    YouTube
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-xs-11" id="web-new">
+            <div ng-click="model.createWidget('HTML')">
+                <a id="t-dec">
+                    HTML
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-xs-11" id="web-new">
+            <div ng-click="model.createWidget('INPUT')">
+                <a id="t-dec">
+                    Text Input
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid ">
+        <div class="row navbar-text pull-right">
+            <div class="col-xs-12">
+                <a href="#/user/{{model.userId}}">
+                    <span class="glyphicon glyphicon-user pull-right"></span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+</nav>

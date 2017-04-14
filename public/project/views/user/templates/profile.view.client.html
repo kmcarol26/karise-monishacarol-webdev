@@ -1,0 +1,173 @@
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="header-nightsky">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <a  class="navbar-brand" href="#/user/model.userId/home">Muse</a>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+
+                <div class="collapse navbar-collapse" id="myNavbar">
+
+                    <ul class="nav navbar-nav navbar-right">
+
+
+                        <li><a href="" ng-click="model.logout()" >Logout</a></li>
+                        <li class="visible-xs" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+
+                                <li><a href="" ng-click="model.logout()" >Logout</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav></div>
+</nav>
+
+
+
+
+
+
+
+
+<div  id="top-pad" class="container" style="padding-top: 60px;">
+    <h1 class="page-header">Hi {{model.user.firstName}} !</h1>
+    <div id="profile-form" class="container">
+        <div ng-show="model.error" class="alert alert-danger" role="alert">
+            <!--ng-show shows this div only if model.error has some value-->
+            {{model.error}}
+        </div>
+
+        <div ng-show="model.message" class="alert alert-success" role="alert">
+            <!--ng-show shows this div only if model.error has some value-->
+            {{model.message}}
+
+        </div>
+
+    <span class="pull-right">
+ <button  class="btn btn-danger pull-right" value="Deactivate Account" type="submit"
+         ng-click="model.unregister(model.currentUser._id)">Deactivate Account</button>
+
+    </span>
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-4 col-sm-6 col-xs-12">
+
+            <div class="text-center">
+
+                <img src="{{model.user.img}}" class="avatar img-circle img-thumbnail" alt="No profile image">
+
+                <h6>Upload a different photo...</h6>
+                <!--
+                <input type="file" class="text-center center-block well well-sm">-->
+            </div>
+
+            <div class="form-group">
+                <form action="/api/upload/"  method="post" enctype="multipart/form-data">
+                    <input  name="myFile"   type="file" class="form-control" accept="application/x-zip-compressed,image/*"/>
+                    <input  name="userId" value="{{model.currentUser._id}}"   style="display: none"/>
+                    <button type="submit"   class="btn btn-block btn-primary">Upload Image</button>
+                </form>
+            </div>
+
+          <!--  <div class="form-group" >
+                <form action="/api/upload"  method="post" enctype="multipart/form-data">
+                    <input  class="text-center center-block well well-sm" name="myFile"   type="file" class="form-control"/>
+
+                    <input  name="userId" value="{{model.user}}"   style="display: none"/>
+                    <button type="submit"   class="btn btn-block btn-primary">Upload Image</button>
+
+                </form>
+            </div>-->
+        </div>
+        <!-- edit form column -->
+        <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+         <!--   <div class="alert alert-info alert-dismissable">
+                <a class="panel-close close" data-dismiss="alert">×</a>
+                <i class="fa fa-coffee"></i>
+                This is an <strong>.alert</strong>. Use this to show important messages to the user.
+            </div> -->
+            <h3>Personal Info</h3>
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">First Name:</label>
+                    <div class="col-lg-8">
+
+                        <input ng-model="model.user.firstName" type="text" class="form-control" id="first-name" placeholder="Alice">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Last name:</label>
+                    <div class="col-lg-8">
+                        <input ng-model="model.user.lastName" type="text" class="form-control" id="last-name"
+                               placeholder="Wonderland">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Email:</label>
+                    <div class="col-lg-8">
+                        <input ng-model="model.user.email" type="email" class="form-control" id="email" placeholder="alice@wonderland.com">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">City:</label>
+                    <div class="col-lg-8">
+                        <input ng-model="model.user.city" type="text" class="form-control" id="city" placeholder="City">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">About Me :</label>
+                    <div class="col-md-8">
+                        <textarea ng-model="model.user.about" type="text" class="form-control" id="about"
+                                   placeholder="Describe Yourself"  style="height:150px"> </textarea>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">My Playlist</label>
+                    <div class="col-md-8">
+                    <div class="panel panel-warning">
+                             <div class="panel-body">
+                            <ol>
+                                <li ng-repeat="item in model.favorites">
+
+                                    {{item.song}} by
+
+                                    <span ng-repeat="artist in item.artists">
+                       <a href="" ng-click="model.getArtistPage(artist.id)"> {{artist.name}}</a>
+                        </span>
+
+                            <a href="" ng-click="model.removeSong(item._id)" style="text-decoration: none" class="glyphicon glyphicon-remove pull-right"></a>
+                                </li>
+                            </ol>
+
+                        </div>
+                    </div>
+                </div>
+                    </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8">
+                        <input class="btn btn-primary" value="Save Changes" ng-click="model.updateUser(model.user)" type="button">
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

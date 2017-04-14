@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="BlogApp"> <!-- looks for 'BlogApp' in a javascript in the angular.module -->
+<head>
+    <meta charset="UTF-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <!-- angular.min.js creates an object named angular -->
+    <script src="app.js"></script>
+
+    <title>Title</title>
+</head>
+<body>
+<div class="container" ng-controller="BlogController">
+<h1>Post new blog</h1>
+    <label>Blog Title</label>
+
+<input ng-model="post.title" class="form-control"/>  <!-- ng-model declares a variable/object post that refers to this html element.
+   This variable is now also available on the controller. Whenever user enters anything in this input field, that value is initialised to post.title-->
+
+<label>Blog Content</label>
+<textarea ng-model="post.body" class="form-control"></textarea>
+
+    <button ng-click="createPost(post)" class="btn btn-primary btn-block">Post</button> <!-- whatever details are entered -->
+    <button ng-click="updatePost(post)" class="btn btn-success btn-block">Update</button>
+
+    <div ng-repeat="post in blogPosts"> <!-- creates local variable post which can be used to refer to each instance of blogPosts object. -->
+        <a ng-click="deletePost(post)" class="pull-right">
+        <span class="glyphicon glyphicon-remove" ></span>
+        </a>
+        <a ng-click="selectPost(post)" class="pull-right">
+            <span class="glyphicon glyphicon-cog" ></span>
+        </a>
+
+    <h2>{{post.title}}</h2> <!-- We can refer to the post variable created above by using escape sequences {{}} -->
+    <p>{{post.body}}</p>
+
+
+</div>
+</div>
+</body>
+
+</body>
+</html>

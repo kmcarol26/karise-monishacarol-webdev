@@ -1,0 +1,31 @@
+<div ng-switch="model.widget.type" id="toppad">
+
+    <div ng-switch-when="HEADER">
+        <ng-include src="'views/widget/templates/widget-heading.view.client.html'">
+        </ng-include>
+
+    </div>
+
+    <div ng-switch-when="IMAGE">
+        <ng-include src="'views/widget/templates/widget-image.view.client.html'">
+        </ng-include>
+    </div>
+    <div ng-switch-when="YOUTUBE">
+        <ng-include src="'views/widget/templates/widget-youtube.view.client.html'">
+        </ng-include>
+    </div>
+    <div ng-switch-when="HTML">
+        <ng-include src="'views/widget/templates/widget-html-edit.view.client.html'">
+        </ng-include>
+    </div>
+    <div ng-switch-when="INPUT">
+        <div class="container">
+            <ng-include src="'views/widget/templates/widget-text-edit.view.client.html'">
+            </ng-include>
+
+
+    </div>
+</div>
+</div>
+
+</div>

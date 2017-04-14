@@ -1,0 +1,133 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="header-nightsky">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <a  class="navbar-brand" href="#/user/model.userId/home">Muse</a>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+
+                <div class="collapse navbar-collapse" id="myNavbar">
+
+                    <ul class="nav navbar-nav navbar-right">
+
+
+                        <li><a href="" ng-click="model.logout()" >Logout</a></li>
+                        <li class="visible-xs" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+
+                                <li><a href="" ng-click="model.logout()" >Logout</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav></div>
+</nav>
+
+
+<div>
+
+    <div class="container-fluid" id="top-pad" >
+        <div class="row">
+        <img id="album-img" class="col-xs-6"class="pull-right"src="{{model.album.images[1].url}}"></img>
+            <div class="col-xs-6">
+        Album:<a href="">{{model.album.name}}</a>
+
+        Artists:
+        <span ng-repeat="artist in model.album.artists">
+        <a href="" ng-click="model.getArtistPage(artist.id)">{{artist.name}}</a></span>
+        </div>
+    </div>
+
+
+    <div  class="container" id="album-container" >
+        <ol >
+        <div class="row" id="top-pad-1"   ng-repeat="track in model.albumTracks.items">
+
+
+    <div  class="col-xs-4" >
+        <li>
+   <label>{{track.name}}</label>
+
+    </div>
+
+
+        <div  class="col-xs-4">
+
+
+            <audio id= "yourAudio" controls  >
+
+                <source src={{model.trust(track["preview_url"])}}>
+            </audio>
+            <!--  <a href="" id="audioControl" class="btn btn-sm btn-danger">
+                  <span class="glyphicon glyphicon-music"></span> Listen</a>
+              <button id="audioControl"  type="submit">Play</button>-
+            <script>
+                var yourAudio = document.getElementById('yourAudio'),
+                    ctrl = document.getElementById('audioControl');
+
+                ctrl.onclick = function () {
+
+                    // Update the Button
+                    var pause = ctrl.innerHTML === 'Pause';
+                    ctrl.innerHTML = pause ? 'Play' : 'Pause';
+
+                    // Update the Audio
+                    var method = pause ? 'pause' : 'play';
+                    yourAudio[method]();
+
+                    // Prevent Default Action
+                    return false;
+                };
+            </script>->
+        </div>
+
+
+        <div  class="col-xs-4">
+            <a href="" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Add to Playlist</a>
+
+    </div>
+            </li>
+
+</div>
+
+        </ol>
+
+        </div>
+
+
+
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="header-nightsky">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">LOGO</a>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">HOME</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="" >Contact </a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav></div>
+</nav>

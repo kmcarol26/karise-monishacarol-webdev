@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <h1>Login</h1>
+
+    <div ng-show="model.error" class="alert alert-danger" role="alert">
+        <!--ng-show shows this div only if model.error has some value-->
+        {{model.error}}
+    </div>
+
+    <div ng-show="model.message" class="alert alert-success" role="alert">
+        <!--ng-show shows this div only if model.error has some value-->
+        {{model.message}}
+    </div>
+
+    <input ng-model="model.username" class="form-control" placeholder="username"/>
+    <input ng-model="model.password" class="form-control" type="password" placeholder="password"/>
+    <a class="btn btn-primary btn-block" ng-click="model.login(model)">
+        Login
+    </a>
+    <a class="btn btn-success btn-block" href="#/register">
+        Register
+    </a>
+</div>
+

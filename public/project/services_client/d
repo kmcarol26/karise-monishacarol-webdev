@@ -1,0 +1,207 @@
+{
+  "artists" : {
+    "href" : "https://api.spotify.com/v1/search?query=coldplay&type=artist&offset=0&limit=20",
+    "items" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/4gzpq5DPGxSnKTe4SA8HAU"
+      },
+      "followers" : {
+        "href" : null,
+        "total" : 7042444
+      },
+      "genres" : [ "permanent wave", "pop", "pop christmas" ],
+      "href" : "https://api.spotify.com/v1/artists/4gzpq5DPGxSnKTe4SA8HAU",
+      "id" : "4gzpq5DPGxSnKTe4SA8HAU",
+      "images" : [ {
+        "height" : 1000,
+        "url" : "https://i.scdn.co/image/143b0f286f76ece3a711f673d9ba00b8f499b2c0",
+        "width" : 1000
+      }, {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/9815eb48540fa0d1c87ebd22289060729b1ab32a",
+        "width" : 640
+      }, {
+        "height" : 200,
+        "url" : "https://i.scdn.co/image/02c781539fca2176059bdeafd9fa903db5b9a4d0",
+        "width" : 200
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/d82a669c531c06b703c7468a8981424581f14e91",
+        "width" : 64
+      } ],
+      "name" : "Coldplay",
+      "popularity" : 89,
+      "type" : "artist",
+      "uri" : "spotify:artist:4gzpq5DPGxSnKTe4SA8HAU"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/2wKgCt0edHo68HTsrWEJb2"
+      },
+      "followers" : {
+        "href" : null,
+        "total" : 180
+      },
+      "genres" : [ ],
+      "href" : "https://api.spotify.com/v1/artists/2wKgCt0edHo68HTsrWEJb2",
+      "id" : "2wKgCt0edHo68HTsrWEJb2",
+      "images" : [ ],
+      "name" : "Karaoke - Coldplay",
+      "popularity" : 1,
+      "type" : "artist",
+      "uri" : "spotify:artist:2wKgCt0edHo68HTsrWEJb2"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/58naUc4Fd9OoP6UrdrpgFO"
+      },
+      "followers" : {
+        "href" : null,
+        "total" : 112
+      },
+      "genres" : [ ],
+      "href" : "https://api.spotify.com/v1/artists/58naUc4Fd9OoP6UrdrpgFO",
+      "id" : "58naUc4Fd9OoP6UrdrpgFO",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/7e544bb9b858905f95ed9aa96a186ceeca94f282",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/072dd1a6fcf580629efa78f55c4e76df6a509780",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/03ca05365ef52b26f844a359a27cd0f59cadd00c",
+        "width" : 64
+      } ],
+      "name" : "ColdPlay Wu",
+      "popularity" : 0,
+      "type" : "artist",
+      "uri" : "spotify:artist:58naUc4Fd9OoP6UrdrpgFO"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/4RR4AnHWb2qoQomUwTSZ72"
+      },
+      "followers" : {
+        "href" : null,
+        "total" : 191
+      },
+      "genres" : [ ],
+      "href" : "https://api.spotify.com/v1/artists/4RR4AnHWb2qoQomUwTSZ72",
+      "id" : "4RR4AnHWb2qoQomUwTSZ72",
+      "images" : [ ],
+      "name" : "Various Artists - Coldplay Tribute",
+      "popularity" : 9,
+      "type" : "artist",
+      "uri" : "spotify:artist:4RR4AnHWb2qoQomUwTSZ72"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/1ztMJAoRFWrN0B0mM880Gl"
+      },
+      "followers" : {
+        "href" : null,
+        "total" : 134
+      },
+      "genres" : [ ],
+      "href" : "https://api.spotify.com/v1/artists/1ztMJAoRFWrN0B0mM880Gl",
+      "id" : "1ztMJAoRFWrN0B0mM880Gl",
+      "images" : [ ],
+      "name" : "Coldplay Metal Tribute",
+      "popularity" : 8,
+      "type" : "artist",
+      "uri" : "spotify:artist:1ztMJAoRFWrN0B0mM880Gl"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/0WHCs1nv58vHXWrb3AdmOw"
+      },
+      "followers" : {
+        "href" : null,
+        "total" : 19
+      },
+      "genres" : [ ],
+      "href" : "https://api.spotify.com/v1/artists/0WHCs1nv58vHXWrb3AdmOw",
+      "id" : "0WHCs1nv58vHXWrb3AdmOw",
+      "images" : [ ],
+      "name" : "Coldplay, Base Karaoke + Choirs",
+      "popularity" : 0,
+      "type" : "artist",
+      "uri" : "spotify:artist:0WHCs1nv58vHXWrb3AdmOw"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/3mGdGgKs8aNdTlJ89d6Gkp"
+      },
+      "followers" : {
+        "href" : null,
+        "total" : 22
+      },
+      "genres" : [ ],
+      "href" : "https://api.spotify.com/v1/artists/3mGdGgKs8aNdTlJ89d6Gkp",
+      "id" : "3mGdGgKs8aNdTlJ89d6Gkp",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/a2118dcce2d5ae65b5e56a8e1735c33e4f83422d",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/046c12e5bd0a1dec4b4ba7a91f02703b52194798",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/933bce511ede0e8d204d0fbaa6da10e6b3ab81da",
+        "width" : 64
+      } ],
+      "name" : "Karaoke Soundtrack - Originally Performed By Coldplay",
+      "popularity" : 0,
+      "type" : "artist",
+      "uri" : "spotify:artist:3mGdGgKs8aNdTlJ89d6Gkp"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/2L4V5MTVOFMnXewCkh81Dx"
+      },
+      "followers" : {
+        "href" : null,
+        "total" : 1866
+      },
+      "genres" : [ ],
+      "href" : "https://api.spotify.com/v1/artists/2L4V5MTVOFMnXewCkh81Dx",
+      "id" : "2L4V5MTVOFMnXewCkh81Dx",
+      "images" : [ ],
+      "name" : "Princess of China (In The Style of Coldplay& Rihan",
+      "popularity" : 1,
+      "type" : "artist",
+      "uri" : "spotify:artist:2L4V5MTVOFMnXewCkh81Dx"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/0Txha5IUjaVgUtNAjgFEmR"
+      },
+      "followers" : {
+        "href" : null,
+        "total" : 167
+      },
+      "genres" : [ ],
+      "href" : "https://api.spotify.com/v1/artists/0Txha5IUjaVgUtNAjgFEmR",
+      "id" : "0Txha5IUjaVgUtNAjgFEmR",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/b2e6516aeaff1f6561c0c8ac9fa83467066dac7c",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/195d5fe9460296412186c3a3af315fa276eeebdc",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/39c0efb0e696af9d3fbc49c7ab1451943caa30aa",
+        "width" : 64
+      } ],
+      "name" : "Princess of China (In The Style of Coldplay& Rihanna) [Karaoke Version]",
+      "popularity" : 0,
+      "type" : "artist",
+      "uri" : "spotify:artist:0Txha5IUjaVgUtNAjgFEmR"
+    } ],
+    "limit" : 20,
+    "next" : null,
+    "offset" : 0,
+    "previous" : null,
+    "total" : 9
+  }
+}

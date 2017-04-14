@@ -1,0 +1,273 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="header-nightsky">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <a  class="navbar-brand" href="#/user/model.userId/home">Muse</a>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+
+                <div class="collapse navbar-collapse" id="myNavbar">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a ng-if="model.currentUser.role == 'admin'" href="#/admin" >Admin</a></li>
+
+                        <li><a href="" ng-click="model.logout()" >Logout</a></li>
+                        <li class="visible-xs" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+
+                                <li><a ng-if="model.currentUser == 'admin'" href="#/admin" >Admin</a></li>
+                                <li><a href="" ng-click="model.logout()" >Logout</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav></div>
+</nav>
+<div id="top-pad">
+
+<div ng-show="model.message" class="alert alert-success" role="alert">
+    <!--ng-show shows this div only if model.error has some value-->
+    {{model.message}}
+</div>
+<div  ng-show="model.error" class="alert alert-danger" role="alert">
+    <!--ng-show shows this div only if model.error has some value-->
+    {{model.error}}
+</div>
+</div>
+<div id= "top-pad" class="container-fluid">
+    <h1>ADMIN PAGE</h1>
+
+    <div id ="top-pad" class="container-fluid">
+
+        <h2 >CREATE NEW USER</h2>
+
+        <div class="panel panel-success">
+            <div class="panel-body">
+                <div class="col-xs-3 table-responsive">
+
+                    <table class="table">
+                        <tr ><th>First Name: </th><td> <input ng-model="model.user.firstName" type="text" class="form-control" id="first-name" ></td></tr>
+                        <tr> <th> Last Name:</th><td>  <input ng-model="model.user.lastName" type="text" class="form-control" id="last-name" ></td></tr>
+                        <tr > <th> Username :</th><td> <input ng-model="model.user.username" type="text" class="form-control" id="username" ></td></tr>
+                        <tr> <th>Password :</th><td> <input ng-model="model.user.password" type="text" class="form-control" id="password" ></td></tr>
+                    </table>
+
+                    </br>
+                    </br>
+                </div>
+                <div class="col-xs-3 table-responsive">
+
+                    <table class="table">
+                        <tr ><th>Email: </th><td> <input ng-model="model.user.email" type="text" class="form-control"  ></td></tr>
+                        <tr > <th> City:</th><td>  <input ng-model="model.user.city" type="text" class="form-control"  ></td></tr>
+                        <tr> <th> About :</th><td> <textarea ng-model="model.user.about" type="text" class="form-control"></textarea> </td></tr>
+                        <tr><th>Gender : </th>
+                            <td>
+                                <form>
+                            <span class="radio">
+                                <label><input type="radio" ng-model="model.user.gender"  value="M">Male</label>
+
+                                <label><input type="radio"  ng-model="model.user.gender"  value="F">Female</label>
+                            </span>
+                                </form>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <th>Role : </th>
+                            <td>
+                                <form>
+                            <span class="radio">
+                                <label><input type="radio" ng-model="model.user.role" value="user">User</label>
+
+                                <label><input type="radio"  ng-model="model.user.role" value="admin">Admin</label>
+                            </span>
+                                </form>
+                            </td>
+
+
+                        </tr>
+                    </table>
+
+                    </br>
+                    </br>
+                </div>
+
+
+                <div class="col-xs-3 table-responsive">
+
+                    <table class="table">
+                        <tr><th>Following: </th>
+                            <td>
+                                <textarea ng-model="model.user.following" type="text" class="form-control"  rows=9></textarea>
+                            </td>
+                        </tr>
+
+
+                    </table>
+
+                    </br>
+                    </br>
+                </div>
+                <div class="col-xs-3 table-responsive">
+
+                    <table class="table">
+                        <tr><th>Followers </th>
+                            <td>
+                                <textarea ng-model="model.user.followers" type="text" class="form-control"  rows=9></textarea>
+
+                                <div class="row">
+                                    <button class="btn btn-success pull-right"   type="button"
+                                            ng-click="model.createNewUser(model.user)"
+                                    > Create User</button>
+                                </div>
+                                </br>
+
+
+                                <div class="row">
+                                    <button class="btn btn-danger pull-right"   type="button" ng-if="user.role == 'user'"
+                                            ng-click="model.deleteUser(user)"
+                                    > Delete User</button>
+                                </div>
+                            </td>
+
+                        </tr>
+
+
+
+                    </table>
+
+                    </br>
+                    </br>
+                </div>
+            </div>
+        </div>
+
+        </br>
+        </br>
+        </br>
+
+        <h2 class="">UPDATE EXISTING NEW USERS</h2>
+    </div>
+
+
+    <div  id ="top-pad" class="panel panel-danger" ng-repeat="user in model.users">
+        <div class="panel-body">
+        <div class="col-xs-3 table-responsive">
+
+            <table class="table">
+            <tr ><th>First Name: </th><td> <input ng-model="user.firstName" type="text" class="form-control" id="first-name" ></td></tr>
+            <tr> <th> Last Name:</th><td>  <input ng-model="user.lastName" type="text" class="form-control" id="last-name" ></td></tr>
+            <tr > <th> Username :</th><td> <input ng-model="user.username" type="text" class="form-control" id="username" ></td></tr>
+            <tr> <th>Password :</th><td> <input ng-model="user.password" type="text" class="form-control" id="password" ></td></tr>
+            </table>
+
+            </br>
+            </br>
+        </div>
+            <div class="col-xs-3 table-responsive">
+
+                <table class="table">
+                    <tr ><th>Email: </th><td> <input ng-model="user.email" type="text" class="form-control"  ></td></tr>
+                    <tr > <th> City:</th><td>  <input ng-model="user.city" type="text" class="form-control"  ></td></tr>
+                    <tr> <th> About :</th><td> <textarea ng-model="user.about" type="text" class="form-control"></textarea> </td></tr>
+                    <tr><th>Gender : </th>
+                        <td>
+                            <form>
+                            <span class="radio">
+                                <label><input type="radio" ng-model="user.gender"  value="M">Male</label>
+
+                                <label><input type="radio"  ng-model="user.gender"  value="F">Female</label>
+                            </span>
+                            </form>
+
+                    </td>
+
+                    </tr>
+
+                    <tr>
+                        <th>Role : </th>
+                    <td>
+                        <form>
+                            <span class="radio">
+                                <label><input type="radio" ng-model="user.role" value="user">User</label>
+
+                                <label><input type="radio"  ng-model="user.role" value="admin">Admin</label>
+                            </span>
+                        </form>
+                        </td>
+
+
+                    </tr>
+                </table>
+
+            </br>
+            </br>
+        </div>
+
+
+            <div class="col-xs-3 table-responsive">
+
+                <table class="table">
+                    <tr><th>Following: </th>
+                        <td>
+                            <textarea ng-model="user.following" type="text" class="form-control"  rows=9></textarea>
+                        </td>
+                    </tr>
+
+
+                </table>
+
+                      </br>
+            </br>
+        </div>
+            <div class="col-xs-3 table-responsive">
+
+                <table class="table">
+                <tr><th>Followers </th>
+                    <td>
+                        <textarea ng-model="user.followers" type="text" class="form-control"  rows=9></textarea>
+
+                        <div class="row">
+                            <button class="btn btn-warning pull-right"   type="button"
+                                    ng-click="model.editUser(user)"
+                            > Update User</button>
+                        </div>
+                        </br>
+
+
+                        <div class="row">
+                            <button class="btn btn-danger pull-right"   type="button" ng-if="user.role == 'user'"
+                                    ng-click="model.deleteUser(user)"
+                            > Delete User</button>
+                        </div>
+                    </td>
+
+                </tr>
+
+
+
+            </table>
+
+            </br>
+            </br>
+        </div>
+    </div>
+        </div>
+        </div>
+
+
+
+

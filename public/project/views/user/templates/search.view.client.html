@@ -1,0 +1,186 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="header-nightsky">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <a  class="navbar-brand" href="#/user/model.userId/home">Muse</a>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+
+                <div class="collapse navbar-collapse" id="myNavbar">
+
+                    <ul class="nav navbar-nav navbar-right">
+
+
+                        <li><a href="" ng-click="model.logout()" >Logout</a></li>
+                        <li class="visible-xs" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+
+                                <li><a href="" ng-click="model.logout()" >Logout</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav></div>
+</nav>
+
+
+
+<form>
+    <div class="form-group">
+        <input id="searchBar" type="text" name="searchStr" style="width: 800px;"
+               placeholder="Search" ng-model="model.searchStr" class="form-control"/>
+        <button id="searchButton" ng-click="model.search(model.searchStr,model.criteria)" type="submit" style="width: 50px;"
+                class="btn btn-default">
+
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </button>
+        <div id="searchCriteria">
+            <label>Search By </label>
+            <label class="radio-inline">
+                <input ng-model="model.criteria" type="radio" name="search" value="artist" id=artist />Artist
+            </label>
+            <label class="radio-inline">
+                <input ng-model="model.criteria" type="radio" name="search" value="album" id=album />Album
+            </label>
+            <label class="radio-inline">
+                <input ng-model="model.criteria" type="radio" name="search" value="song" id=song />Song
+            </label>
+        </div>
+        <!--  <button  style="width: 800px;" class="glyphicon glyphicon-search" type="submit"
+                   ng-click="model.search(searchstr)">Search</button>-->
+    </div>
+</form>
+
+
+<div  ng-switch="model.criteria">
+
+
+    <div  ng-switch-when="artist" id="top-pad" ng-repeat="result in model.searchResults.artists.items">
+        <div  class="row container-fluid">
+            <div class="col-xs-3">
+
+
+                <a><img src={{result.images[0].url}} style="width:250px;height:250px;"> </a>
+            </div>
+            <div class="col-xs-9">
+
+                <a href="" ng-click="model.getArtistPage(result.id)">{{result.name}}</a>
+
+            </div>
+
+        </div>
+        </br>
+        </br>
+
+
+    </div>
+
+    <div  ng-switch-when="album" id="top-pad"   ng-repeat="result in model.searchResults.albums.items">
+        <div id="album-search-temp" class="row container-fluid">
+            <div class="col-xs-2">
+
+                <a><img src={{result.images[0].url}} style="width:250px;height:250px;"> </a>
+            </div>
+            <div class="col-xs-10">
+
+                <ul>
+                    <li><a href=""  ng-click="model.getAlbumPage(result.id,result.name)" >{{result.name}}</a></li>
+                    <li>Artist: <a href="">{{result.artists[0].name}}</a></li>
+
+
+                </ul>
+            </div>
+
+
+        </div>
+        </br>
+        </br>
+
+
+    </div>
+    <div  ng-switch-when="song" id="top-pad"   ng-repeat="result in model.searchResults.tracks.items">
+        <div  class="row container-fluid">
+            <div class="col-xs-3">
+
+                <a><img src={{result.album.images[0].url}} style="width:250px;height:250px;"> </a>
+            </div>
+            <div class="col-xs-9">
+
+
+                {{result.name}}
+                </br>
+
+                Artists:
+                <span ng-repeat="artist in result.artists">
+                    <a href="" ng-click="model.getArtistPage(artist.id)">
+                        {{artist.name}}</a>
+
+                </span>
+                </br>
+                Album:  <a href="" ng-click="model.getAlbumPage(result.album.id,result.album.name)">
+                {{result.album.name}}</a>
+                </br>
+                </br>
+                <!-- <div>
+
+                     Listen :
+                 <audio controls>
+                     <source src={{model.trust(result["preview_url"])}}>
+                 </audio>
+                 </div>-->
+
+
+                <audio id= "yourAudio"  controls>
+
+                    <source src={{model.trust(result["preview_url"])}}>
+                </audio>
+
+                <button id="audioControl" class="btn btn-success" type="submit"
+                        ng-click="model.addToPlaylist(result.id,result.name,result.artists,result.album.name)">Add to Playlist</button>
+
+                <!--
+                <a href="" id="audioControl" class="btn btn-sm btn-danger">
+                    <span class="glyphicon glyphicon-music"></span> Listen</a>
+                 <button id="audioControl"  type="submit">Play</button>
+                <script>
+                    var yourAudio = document.getElementById('yourAudio'),
+                        ctrl = document.getElementById('audioControl');
+
+                    ctrl.onclick = function () {
+
+                        // Update the Button
+                        var pause = ctrl.innerHTML === 'Pause';
+                        ctrl.innerHTML = pause ? 'Play' : 'Pause';
+
+                        // Update the Audio
+                        var method = pause ? 'pause' : 'play';
+                        yourAudio[method]();
+
+                        // Prevent Default Action
+                        return false;
+                    };
+                </script>-->
+
+            </div>
+
+        </div>
+        </br>
+        </br>
+
+
+    </div>
+
+
+
+</div>
+
