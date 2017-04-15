@@ -18,12 +18,24 @@
                     <ul class="nav navbar-nav navbar-right">
 
 
-                        <li><a href="" ng-click="model.logout()" >Logout</a></li>
-                        <li class="visible-xs" class="dropdown">
+                        <li ng-if="vm.logged == true"><a href="" ng-click="model.logout()" >Logout</a></li>
+                        <li ng-if="vm.logged == true" class="visible-xs" class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
                             <ul class="dropdown-menu">
 
                                 <li><a href="" ng-click="model.logout()" >Logout</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li ng-if="vm.logged == false"><a href="" ng-click="model.signup()" >Sign Up</a></li>
+                        <li ng-if="vm.logged == false"><a href="" ng-click="model.login()" >Login</a></li>
+                        <li ng-if="vm.logged == false" class="visible-xs" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+
+                                <li ><a href="" ng-click="model.signup()" >Sign Up</a></li>
+                                <li ><a href="" ng-click="model.login()" >Login</a></li>
 
                             </ul>
                         </li>
@@ -40,7 +52,7 @@
         <div class="row">
         <img id="album-img" class="col-xs-6"class="pull-right"src="{{model.album.images[1].url}}"></img>
             <div class="col-xs-6">
-        Album:<a href="">{{model.album.name}}</a>
+        Album:<b>{{model.album.name}}</b>
 
         Artists:
         <span ng-repeat="artist in model.album.artists">

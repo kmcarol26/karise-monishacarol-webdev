@@ -92,14 +92,14 @@
 
             console.log("get album page ");
 
-            $location.url("/user/"+vm.userId+"/home/album/"+albumId) ;
+            $location.url("/user/home/album/"+albumId) ;
 
         }
         function getArtistPage(artistId) {
 
             console.log("get artist page ");
 
-            $location.url("/user/"+vm.userId+"/home/artist/"+artistId) ;
+            $location.url("/user/home/artist/"+artistId) ;
 
         }
 

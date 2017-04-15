@@ -28,6 +28,9 @@
         vm.getAlbumPage = getAlbumPage;
         vm.getTopTracks=getTopTracks;
         vm.getArtistPage=getArtistPage;
+        vm.signup=signUp;
+        vm.login=login;
+        vm.logout=logout;
 
         function init(){
 
@@ -35,6 +38,71 @@
             getTopTracks();
 
         }init();
+
+        function logout(){
+            UserService
+                .logout()
+                .then(function(){
+                    $location.url('/login');
+                })
+        }
+
+        function signUp(user) {
+            //noinspection JSUnresolvedFunction
+            console.log("signUp contr");
+
+            UserService
+                .signUp(user)
+                .then(
+
+                    function(user) {
+                        if(user){
+
+                            console.log("sign up success");
+                            var user = user;
+                            $rootScope.currentUser = user;
+                            $location.url("/user/home");
+                        }
+                    },function(err){
+                        vm.error="Please enter all details";
+                    });
+
+        }
+
+
+
+        function login(user) {
+            UserService
+                .login(user)
+                .then(
+                    function(user) {
+
+                        if (user) {
+                            console.log("success");
+
+                            //  var user = response.data;
+
+                            $rootScope.currentUser = user;
+                            $location.url("/user/home");
+                        }
+                    },
+
+                    function () {
+                        console.log("fail");
+                        vm.error = "no such user";
+                        console.log(vm.error);
+
+                    }
+
+
+
+
+                );
+
+
+
+
+        }
 
 function getTopTracks () {
     MusicService

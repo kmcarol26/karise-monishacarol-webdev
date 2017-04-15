@@ -8,7 +8,7 @@
         .module("MusicApp")
         .controller("AlbumController", AlbumController); // Instantiate a Controller called LoginController with constructor loginController
 
-    function AlbumController($location, MusicService,$scope,$routeParams,myService,$sce) { //injecting UserService
+    function AlbumController($location, MusicService,UserService,$scope,$routeParams,myService,$sce) { //injecting UserService
 
         console.log("AlbumController ");
         var vm = this;
@@ -18,13 +18,103 @@
         vm.getAlbumById=getAlbumById;
         vm.getArtistPage=getArtistPage;
         vm.getAlbumPage=getAlbumPage;
+        vm.signup=signUp;
+        vm.login=login;
+        vm.logout=logout;
 
         function  init() {
             vm.albumId=$routeParams.albumid;
             vm.getAlbumTracks=getAlbumTracks(vm.albumId);
             vm.getAlbumById=getAlbumById(vm.albumId);
+            checkLoggedIn();
+
 
         }init();
+
+        function logout(){
+            UserService
+                .logout()
+                .then(function(){
+                    $location.url('/login');
+                })
+        }
+
+
+        function login(user) {
+            UserService
+                .login(user)
+                .then(
+                    function(user) {
+
+                        if (user) {
+                            console.log("success");
+
+                            //  var user = response.data;
+
+                            $rootScope.currentUser = user;
+                            $location.url("/user/home");
+                        }
+                    },
+
+                    function () {
+                        console.log("fail");
+                        vm.error = "no such user";
+                        console.log(vm.error);
+
+                    }
+
+
+
+
+                );
+
+
+
+
+        }
+
+        function signUp(user) {
+            //noinspection JSUnresolvedFunction
+            console.log("signUp contr");
+
+            UserService
+                .signUp(user)
+                .then(
+
+                    function(user) {
+                        if(user){
+
+                            console.log("sign up success");
+                            var user = user;
+                            $rootScope.currentUser = user;
+                            $location.url("/user/home");
+                        }
+                    },function(err){
+                        vm.error="Please enter all details";
+                    });
+
+        }
+
+
+        function checkLoggedIn() {
+            //var deferred=$q.defer();
+            UserService
+                .loggedin()
+                .then(function(user){
+                    if(user=='0'){
+                       // deferred.reject();
+                        vm.logged=false;
+                        console.log(vm.logged);
+
+                    }
+                    else{
+                        vm.logged=true;
+                        console.log(vm.logged);
+                    }
+                });
+
+
+        }
 
 
         function trust(url) {

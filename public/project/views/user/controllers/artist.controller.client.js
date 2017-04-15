@@ -8,7 +8,7 @@
         .module("MusicApp")
         .controller("ArtistController", ArtistController); // Instantiate a Controller called LoginController with constructor loginController
 
-    function ArtistController($location, MusicService,$scope,$routeParams,myService,$sce) { //injecting UserService
+    function ArtistController($location, MusicService,UserService,$scope,$routeParams,myService,$sce) { //injecting UserService
 
         console.log("ArtistController");
         var vm = this;
@@ -18,6 +18,9 @@
         vm.getArtistById=getArtistById;
         vm.getArtistInfo=getArtistInfo;
         vm.getAlbumPage=getAlbumPage;
+        vm.signup=signUp;
+        vm.login=login;
+        vm.logout=logout;
 
         function  init() {
             vm.artistId=$routeParams.artistId;
@@ -27,6 +30,70 @@
 
 
         }init();
+
+        function logout(){
+            UserService
+                .logout()
+                .then(function(){
+                    $location.url('/login');
+                })
+        }
+
+        function signUp(user) {
+            //noinspection JSUnresolvedFunction
+            console.log("signUp contr");
+
+            UserService
+                .signUp(user)
+                .then(
+
+                    function(user) {
+                        if(user){
+
+                            console.log("sign up success");
+                            var user = user;
+                            $rootScope.currentUser = user;
+                            $location.url("/user/home");
+                        }
+                    },function(err){
+                        vm.error="Please enter all details";
+                    });
+
+        }
+
+
+        function login(user) {
+            UserService
+                .login(user)
+                .then(
+                    function(user) {
+
+                        if (user) {
+                            console.log("success");
+
+                            //  var user = response.data;
+
+                            $rootScope.currentUser = user;
+                            $location.url("/user/home");
+                        }
+                    },
+
+                    function () {
+                        console.log("fail");
+                        vm.error = "no such user";
+                        console.log(vm.error);
+
+                    }
+
+
+
+
+                );
+
+
+
+
+        }
 
 
         function trust(url) {
