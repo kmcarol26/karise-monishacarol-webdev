@@ -2,19 +2,24 @@
  * Created by Monisha on 3/30/2017.
  */
 module.exports = function(app, model){
-
-    console.log("model");
+    //app.use(express.bodyParser());
+    console.log("server");
     var passport      = require('passport');
-    var cookieParser = require('cookie-parser');
-    var session = require('express-session');
-    var auth = authorized;
     var LocalStrategy = require('passport-local').Strategy;
-    var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+    passport.use(new LocalStrategy(localStrategy));
+    app.post('/api/login',passport.authenticate('local'), login);
 
+
+    var auth = authorized;
+
+
+    passport.serializeUser(serializeUser);
+    passport.deserializeUser(deserializeUser);
+
+    var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
     app.put('/api/user/removeSong',removeSong);
 
-    app.post  ('/api/userlogin', passport.authenticate('local'), login);
     app.post  ('/api/loggedin', loggedin);
     app.get('/api/user/:userId/searchPeople/:name',searchPeople);
     app.get("/api/user",findUser);
@@ -44,17 +49,6 @@ module.exports = function(app, model){
     var upload = multer({ dest: __dirname+'/../../../../public/uploads' });
     app.post ("/api/upload", upload.single('myFile'), uploadImage);
 
-    app.use(session({
-        secret: 'this is the secret',
-        resave: true,
-        saveUnitialized: true
-    }));
-    app.use(cookieParser());
-    app.use(passport.initialize());
-    app.use(passport.session());
-    passport.use(new LocalStrategy(localStrategy));
-    passport.serializeUser(serializeUser);
-    passport.deserializeUser(deserializeUser);
 
     var googleConfig = {
         clientID     : process.env.GOOGLE_CLIENT_ID,
@@ -62,19 +56,7 @@ module.exports = function(app, model){
         callbackURL  : process.env.GOOGLE_CALLBACK_URL
     };
 
-  //  console.log(process.env);
 
-
-
-/*
-
- var googleConfig = {
- clientID     : "679837187557-0tud1fh0ifq82uvilpkaqquk9gou5m5j.apps.googleusercontent.com",
- clientSecret : "DN9wJe11sTdwUKFYR-R86WCK",
- callbackURL :"http://127.0.0.1:27017/google/callback"
- };
-
-   */
     app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
     app.get('/google/callback',
         passport.authenticate('google', {
@@ -167,16 +149,18 @@ module.exports = function(app, model){
             .then(
                 function(newSong){
                     console.log("song success");
-                 //   console.log(newSong);
+                    //   console.log(newSong);
 
                     model
                         .UsersModel
                         .addSong(userId,newSong._id)
                         .then(function(user){
-                            console.log(" user success");
-                            console.log(user);
+                            //console.log(" user success");
+                            //console.log(user);
                             //res.json(user);
                         });
+
+                    console.log("after song add"+newSong);
                     res.json(newSong);
                 },
                 function(error){
@@ -191,14 +175,14 @@ module.exports = function(app, model){
     function removeSong(req,res){
 
         console.log("server remove song");
-       // var songId = req.body.songId;
+        // var songId = req.body.songId;
 
-     //   console.log("server songid"+songId);
-       var  userId= req.user._id;
-      //  console.log(req.params.songId);
+        //   console.log("server songid"+songId);
+        var  userId= req.user._id;
+        //  console.log(req.params.songId);
         var songId=req.body;
         console.log("client server removeSong");
-       // console.log(userId);
+        // console.log(userId);
         model
             .UsersModel
             .removeSong(userId,songId)
@@ -277,16 +261,16 @@ module.exports = function(app, model){
 
     function unregister(req,res){
 
-            model.UsersModel.deleteUser(req.params.userId, req.user)
-                .then(
-                    function () {
-                        res.send(200);
+        model.UsersModel.deleteUser(req.params.userId, req.user)
+            .then(
+                function () {
+                    res.send(200);
 
-                    },
-                    function () {
-                        res.sendStatus(400).send(error);
-                    }
-                );
+                },
+                function () {
+                    res.sendStatus(400).send(error);
+                }
+            );
 
 
     }
@@ -328,28 +312,7 @@ module.exports = function(app, model){
         var userId=req.user._id;
         console.log("userid"+userId);
         var img = req.protocol + '://' + req.get('host') + "/uploads/" + filename;
-/*
 
-        var newUser = {
-            _id:req.body._id,
-            img: req.protocol + '://' + req.get('host') + "/uploads/" + filename,
-            username : req.body.username,
-            password : req.body.password,
-            firstName: req.body.firstName,
-            lastName : req.body.lastName,
-            email    : req.body.email,
-            gender   :req.body.gender,
-            dob      :req.body.dob,
-            role    : req.body.role,
-            following :req.body.following,
-            followers:req.body.followers,
-            playlist:req.body.playlist,
-
-            about:req.body.about,
-            city:req.body.city,
-            // websites : [{type: mongoose.Schema.Types.ObjectId, ref:'WebsiteModel'}],
-            dateCreated : req.body.dateCreated
-        };*/
         model.UsersModel.updateImage(userId, img).then(
             function (img) {
                 res.redirect("/project/#/user/" +userId);
@@ -358,21 +321,21 @@ module.exports = function(app, model){
                 res.sendStatus(500).send(err);
 
             });
-/*
-        model
-            .UsersModel
-            .updateUser(newUser._id, newUser)
-            .then(
-                function (status) {
-                    res.statusCode(200);
-                  //  res.redirect("/assignment/#/user/" + req.body.userId + "/website/" + req.body.websiteId + "/page/"
-                     //   + req.body.pageId + "/widget");
-                },
-                function (error) {
-                    res.statusCode(404).send(error);
+        /*
+         model
+         .UsersModel
+         .updateUser(newUser._id, newUser)
+         .then(
+         function (status) {
+         res.statusCode(200);
+         //  res.redirect("/assignment/#/user/" + req.body.userId + "/website/" + req.body.websiteId + "/page/"
+         //   + req.body.pageId + "/widget");
+         },
+         function (error) {
+         res.statusCode(404).send(error);
 
-                }
-            );*/
+         }
+         );*/
 
     }
 
@@ -402,10 +365,10 @@ module.exports = function(app, model){
 
     function follow(req,res){
         console.log("follow server");
-     var friendId=req.body.friendId;
-  //      var friendId=req.body.friendId;
-     console.log(friendId);
-      var userId=req.body.userId;
+        var friendId=req.body.friendId;
+        //      var friendId=req.body.friendId;
+        console.log(friendId);
+        var userId=req.body.userId;
 
         model
             .UsersModel
@@ -430,7 +393,7 @@ module.exports = function(app, model){
         console.log("server searchPeople");
 
         //var username=req.query['username'];
-    //  var userId=req.params.userId;
+        //  var userId=req.params.userId;
         var name=req.params.name;
         model.UsersModel.searchPeople(name)
             .then(
@@ -457,9 +420,9 @@ module.exports = function(app, model){
     function signUp (req, res) {
         var user = req.body;
 
-         var d = new Date(user.year,user.month, user.day,00,00,00);
-         var newUser={firstName: user.firstName, lastName: user.lastName, email: user.email,username:user.username,
-             password:user.password , dob : d ,gender: user.gender,role: user.role};
+        var d = new Date(user.year,user.month, user.day,00,00,00);
+        var newUser={firstName: user.firstName, lastName: user.lastName, email: user.email,username:user.username,
+            password:user.password , dob : d ,gender: user.gender,role: user.role};
 
         //console.log(user);
         model.UsersModel
@@ -467,7 +430,7 @@ module.exports = function(app, model){
             .then(
                 function(user){
                     if(user){
-                          req.login(user, function(err) {
+                        req.login(user, function(err) {
                             if(err) {
                                 res.status(400).send(err);
                             } else {
@@ -484,20 +447,26 @@ module.exports = function(app, model){
     }
 
     function localStrategy(username, password, done) {
-        model.UsersModel
+        console.log("local");
+        model
+            .UsersModel
             .findUserByCredentials(username, password)
             .then(
 
                 function(user) {
 
                     if(user) {
+                        console.log(user);
                         return done(null, user);
                     } else {
+                        console.log("didnt find user");
                         return done(null, false);
                     }
                 },
                 function(err) {
-                    if (err) { return done(err); }
+                    if (err) {
+                        console.log(err);
+                        return done(err); }
                 }
             );
     }
@@ -523,8 +492,11 @@ module.exports = function(app, model){
 
     function login(req,res){
 
+        console.log("inside login");
+
         var user=req.user;
-        res.json(user);
+        console.log(user);
+        res.send(user);
 
     }
 
@@ -656,16 +628,16 @@ module.exports = function(app, model){
         var newUser= req.body;
 
 
-    model.UsersModel.deleteUser(userId, newUser)
-        .then(
-            function () {
-                res.send(200);
+        model.UsersModel.deleteUser(userId, newUser)
+            .then(
+                function () {
+                    res.send(200);
 
-            },
-            function () {
-                res.sendStatus(400).send(error);
-            }
-        );
+                },
+                function () {
+                    res.sendStatus(400).send(error);
+                }
+            );
 
 
     }

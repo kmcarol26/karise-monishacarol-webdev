@@ -12,7 +12,7 @@
         .module("MusicApp")
         .controller("SignUpController", SignUpController);
 
-    function SignUpController($routeParams, $location, UserService,$rootScope,MusicService) {//$routeParams is a map of all the URL attributes
+    function SignUpController($routeParams, $location, UserService,MusicService) {//$routeParams is a map of all the URL attributes
         console.log("init register controller");
         //assigning to vm makes the RHS available on the templates
         var vm = this;
@@ -67,8 +67,8 @@
 
                           console.log("sign up success");
                         var user = user;
-                        $rootScope.currentUser = user;
-                        $location.url("/user/home");
+
+                        $location.url("/");
                       }
                     },function(err){
                         vm.error="Please enter all details";

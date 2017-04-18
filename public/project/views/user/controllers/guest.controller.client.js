@@ -28,16 +28,123 @@
         vm.getAlbumPage = getAlbumPage;
         vm.getTopTracks=getTopTracks;
         vm.getArtistPage=getArtistPage;
-        vm.signup=signUp;
+        vm.signUp=signUp;
         vm.login=login;
         vm.logout=logout;
+        vm.checkLoggedIn=checkLoggedIn;
+        vm.addToPlaylist=addToPlaylist;
+        vm.searchFriends=searchFriends;
+        vm.getFavorites=getFavorites;
 
         function init(){
 
-            vm.searchFlag=true;
+            //vm.searchFlag=false;
+           // vm.logged=false;
+
+           // vm.user=currentUser;
+           // vm.userId=currentUser._id;
+            checkLoggedIn();
+           // checkFavorites();
             getTopTracks();
 
+
         }init();
+
+        function getFavorites(userId){
+
+            console.log("inside hget fav");
+
+            UserService
+                .getFavorites(userId)
+                .then(
+                    function (response) {
+
+                        console.log(response);
+                        vm.favorites=response.favorites;
+                        var idList=[];
+                        for (i=0;i<vm.favorites.length;i++){
+                            idList.push(vm.favorites[i].spotifyId);
+                            console.log(vm.favorites[i].spotifyId);
+                        }
+                        vm.spotifyIdList=idList;
+                        console.log(vm.spotifyIdList);
+                    });
+
+        }
+
+        function searchFriends(str) {
+            console.log("search friends ");
+            console.log(str);
+            UserService
+                .searchFriends(vm.userId,str)
+                .then(
+                    function(results) {
+
+                        console.log(results);
+                        console.log("back in ALBUM controller ");
+
+                        vm.people=results;
+                        console.log(vm.people);
+                    },function(err){
+                        console.log("err");
+                    }
+
+                );
+
+
+
+        }
+
+
+
+        function search(str,criteria) {
+
+            console.log("search ");
+            console.log(str);
+            MusicService
+                .search(str,criteria)
+                .then(
+                    function(results) {
+                        console.log("back in controller");
+                        vm.searchFlag=true;
+                        console.log(vm.searchFlag);
+
+                        vm.searchResults=results;
+                        console.log(vm.searchResults);
+
+
+
+                    }
+
+                );
+
+
+
+        }
+
+
+        function checkLoggedIn() {
+            //var deferred=$q.defer();
+            UserService
+                .loggedin()
+                .then(function(user){
+                    if(user=='0'){
+                        // deferred.reject();
+                        vm.logged=false;
+                        console.log(vm.logged);
+
+                    }
+                    else{
+                        vm.logged=true;
+                        vm.user=user;
+                        vm.userId=user._id;
+                        console.log(vm.logged);
+                        getFavorites(vm.userId);
+                    }
+                });
+
+
+        }
 
         function logout(){
             UserService
@@ -61,7 +168,7 @@
                             console.log("sign up success");
                             var user = user;
                             $rootScope.currentUser = user;
-                            $location.url("/user/home");
+                            $location.url("/");
                         }
                     },function(err){
                         vm.error="Please enter all details";
@@ -83,7 +190,7 @@
                             //  var user = response.data;
 
                             $rootScope.currentUser = user;
-                            $location.url("/user/home");
+                            $location.url("/");
                         }
                     },
 
@@ -112,8 +219,8 @@ function getTopTracks () {
                 console.log("back in controller");
 
                 vm.topTracks=results;
-               // vm.searchFlag=false;
-              //  console.log(vm.searchResults);
+               //vm.searchFlag=false;
+                console.log(vm.topTracks);
 
 
             }
@@ -134,27 +241,6 @@ function getTopTracks () {
         }
 
 
-        function search(str,criteria) {
-
-            console.log("search ");
-            console.log(str);
-            MusicService
-                .search(str,criteria)
-                .then(
-                    function(results) {
-                        console.log("back in controller");
-
-                        vm.searchResults=results;
-                        vm.searchFlag=false;
-                        console.log(vm.searchResults);
-
-
-                    }
-
-                );
-
-        }
-
         function getAlbumPage(albumId) {
 
             console.log("get album page ");
@@ -167,6 +253,17 @@ function getTopTracks () {
             console.log("get artist page ");
 
             $location.url("/user/home/artist/"+artistId) ;
+
+        }
+        function  addToPlaylist(songId,songName,artists,albumName) {
+            console.log("add to playlist");
+            UserService
+                .addToPlaylist(songId,songName,artists,albumName,vm.userId)
+                .then(function(result){
+                    vm.message="Song added to your playlist";
+
+                });
+
 
         }
 

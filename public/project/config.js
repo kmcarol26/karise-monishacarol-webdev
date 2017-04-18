@@ -12,7 +12,8 @@
             .when("/", {   //when u see a #/login,fetch the templateUr user/login
                 templateUrl: "views/user/templates/home.view.client.html",
                 controller: "HomeGuestController", //Name of Controller is LoginCOntroller
-                controllerAs: "model" // Within the template, we can now refer to the controller as model
+                controllerAs: "model"
+
             })
             .when("/user/:uid/search", {
             templateUrl: "views/user/templates/search.view.client.html",
@@ -49,14 +50,6 @@
             })
 
 
-            .when("/user/home", {
-                templateUrl: "views/user/templates/homepage.view.client.html",
-                resolve:{
-                    currentUser:checkLogin
-                },
-                controller: "HomePageController",
-                controllerAs: "model"
-            })
             .when("/user/:uid/friends/:fid", {
                 templateUrl: "views/user/templates/public-profile.view.client.html",
                 controller: "PublicProfileController",
@@ -71,7 +64,7 @@
               controller: "AdminController",
                 controllerAs: "model"
             })
-            .when("/user/:uid", {
+            .when("/user/profile", {
                 templateUrl: "views/user/templates/profile.view.client.html",
                 controller: "ProfileController",
                 controllerAs: "model",
@@ -81,7 +74,7 @@
 
             })
             .otherwise({
-                redirectTo:'/login'
+                redirectTo:'/'
             }) ;
 
 
@@ -106,6 +99,8 @@
         return deferred.promise;
 
     }
+
+
 
     function checkLogin($q,UserService,$location) {
         var deferred=$q.defer();

@@ -9,7 +9,7 @@
         .module("MusicApp")
         .controller("ProfileController", profileController);
 
-    function profileController($routeParams,$location, UserService,$rootScope,currentUser) {//$routeParams is a map of all the URL attributes
+    function profileController($routeParams,$location, UserService,currentUser) {//$routeParams is a map of all the URL attributes
     console.log("prof controller");
         //assigning to vm makes the RHS available on the templates
         var vm = this;
@@ -23,20 +23,72 @@
         vm.getArtistPage=getArtistPage;
         vm.removeSong=removeSong;
         vm.getFavorites=getFavorites;
-        console.log(currentUser.img);
+        vm.unfollow=unfollow;
+
+       //    vm.getFollowers=getFollowers;
+       // vm.getFollowing=getFollowing;
+
 
         function init(){
-          /*  vm.userId=$routeParams.uid;
-
-            console.log(vm.userId);
-            UserService.findUserById(vm.userId)
-                .then(function(user){
-                    vm.user=user;
-
-            });*/
+            console.log(currentUser);
+            console.log(currentUser.followers[0]);
             getFavorites(currentUser._id);
 
+            vm.followers=[];
+            vm.following=[];
+            for (i=0;i<currentUser.followers.length;i++){
+                UserService.findUserById(currentUser.followers[i]).
+                    then(function (user) {
+                        console.log(user);
+                       // var followers=[];
+                        vm.followers.push(user);
+
+                });}
+
+                for (i=0;i<currentUser.following.length;i++) {
+                    UserService.findUserById(currentUser.following[i]).then(function (user) {
+                        console.log(user);
+                        // var followers=[];
+                        vm.following.push(user);
+
+                    });
+
+                }
+           // vm.followers=followers;
+        //    console.log(vm.followers);
+           // getFollowers(currentUser._id);
+         //   getFollowing(currentUser._id);
+
         }init();
+
+
+        function unfollow(friendId){
+            console.log("unfollow controller");
+            UserService
+                .unfollow(vm.user._id,friendId)
+                .then(function(result){
+                    if(result)
+                        location.reload();
+                    // $location.url("/user/"+vm.userId+"/friends/"+vm.friendId);
+                    else{
+                        location.reload();
+                        //  $location.url("/user/"+vm.userId+"/friends/"+vm.friendId);
+                        console.log("still following");
+                    }
+                });
+        }
+
+        function getFollowers(userId){
+            UserService
+                .getFollowers(userId)
+                .then(
+                    function (response) {
+
+                        console.log(response);
+                        vm.followers=response.followers;
+                    });
+
+        }
 
       //  console.log(vm.user);
 function getFavorites(userId){
@@ -100,7 +152,7 @@ function getFavorites(userId){
                 .logout()
                 .then(
                     function (response) {
-                        $rootScope.currentUser = null;
+
                         //vm.currentUser=null;
                         $location.url("/login");
                     });

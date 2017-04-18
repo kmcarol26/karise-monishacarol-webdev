@@ -179,7 +179,7 @@ function addToPlaylist(songId,songName,artists,albumName,userId){
             console.log("in user client");
             console.log(user);
 
-            return $http.post("/api/userlogin",user)
+            return $http.post("/api/login",user)
                 .then(function(response){
                     console.log(response.data);
                     return response.data;

@@ -11,7 +11,7 @@
         .module("MusicApp")
         .controller("FriendsController", FriendsController); // Instantiate a Controller called LoginController with constructor loginController
 
-    function FriendsController($location, MusicService,UserService,$scope,$routeParams,myService,$sce) { //injecting UserService
+    function FriendsController($location, MusicService,UserService,$routeParams,$sce) { //injecting UserService
 
         console.log("ArtistController");
         var vm = this;

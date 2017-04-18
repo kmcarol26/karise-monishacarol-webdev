@@ -18,13 +18,14 @@ body {
 
 .header-nightsky .navbar {
     margin-bottom: 0px;
-    padding-top: 20px;
+    padding-top: 6px;
     padding-bottom: 20px;
     width: 100%;
     border-bottom:none;
     background-color: transparent;
-    min-width: 100px;
+    min-width: 70px;
     border: none;
+    height:70px;
 }
 
 .header-nightsky .navbar-default .navbar-nav>.open>a,

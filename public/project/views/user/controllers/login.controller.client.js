@@ -10,7 +10,7 @@
         .module("MusicApp")
         .controller("LoginController", loginController); // Instantiate a Controller called LoginController with constructor loginController
 
-    function loginController($location, UserService,$rootScope) { //injecting UserService
+    function loginController($location, UserService) { //injecting UserService
 
         console.log("login controller");
         var vm = this; // vm (viewModel) refers to the current instance. We dont use $scope here so that we know which
@@ -29,14 +29,12 @@
                         if (user) {
                             console.log("success");
 
-                            //  var user = response.data;
-
-                            $rootScope.currentUser = user;
-                            $location.url("/user/home");
+                            $location.url("/");
                         }
 },
 
-                    function () {
+                    function (err) {
+                        console.log(err);
                         console.log("fail");
                         vm.error = "no such user";
                         console.log(vm.error);

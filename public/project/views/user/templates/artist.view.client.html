@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="header-nightsky">
         <nav class="navbar navbar-default">
@@ -19,12 +18,24 @@
                     <ul class="nav navbar-nav navbar-right">
 
 
-                        <li><a href="" ng-click="model.logout()" >Logout</a></li>
-                        <li class="visible-xs" class="dropdown">
+                        <li ng-if="model.logged == true"><a href="" ng-click="model.logout()" >Logout</a></li>
+                        <li ng-if="model.logged == true" class="visible-xs" class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
                             <ul class="dropdown-menu">
 
                                 <li><a href="" ng-click="model.logout()" >Logout</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li ng-if="model.logged == false"><a href="#/signup"  >Sign Up</a></li>
+                        <li ng-if="model.logged == false"><a href="#/login"  >Login</a></li>
+                        <li ng-if="model.logged == false" class="visible-xs" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+
+                                <li ><a href="# /signup"  >Sign Up</a></li>
+                                <li ><a href="#/login"  >Login</a></li>
 
                             </ul>
                         </li>
@@ -36,26 +47,30 @@
 
 <div class="container">
     <div class="container">
-        <img id="artist-img" src="{{model.artist.images[0].url}}" ></img>
+        <img id="artist-img" class="img-responsive" src="{{model.artist.images[0].url}}" ></img>
     </div>
     <div id="top-pad-1"class="container">
 
    <h1 style="font-weight: bold"> {{model.artistName}}</h1>
     </div>
 
-    <div id="artist-info" class="container">
+    <div class="col-xs-12 col-lg-12" id="artist-info" class="container">
     {{model.artistInfo}}
     </div>
     <div class="container">
    <h2 style="font-weight: bold"> Albums</h2>
     <ol>
-    <div id="top-pad-1" ng-repeat="album in model.albums.items">
-        <div id="top-pad-1" class="row">
+    <div class="container" id="top-pad-1" ng-repeat="album in model.albums.items">
+        <div id="top-pad-1" class="container">
 
-                <li id="list-css">
+                <li class="list-inline" id="list-css">
 
-                   <div class="col-xs-3"> <img id="album-img1" src="{{album.images[0].url}}"></img></div>
-                   <h3 id="album-name" class="col-xs-9"><a href="" ng-click="model.getAlbumPage(album.id)"> {{album.name}}</a></h3>
+                   <div class="col-xs-12 col-lg-4"> <img class="img-responsive" src="{{album.images[1].url}}"></img></div>
+                    <div class="col-lg-6">
+                   <p class="h1" id="album-name" class="col-xs-12 col-lg-8">
+                       <a href=""  style="color:brown;text-decoration: none"  ng-click="model.getAlbumPage(album.id)"> {{album.name}}</a></p></div>
+                </li>
+
                 </li>
 
         </div>

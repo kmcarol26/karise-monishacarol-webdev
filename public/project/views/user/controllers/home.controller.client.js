@@ -28,6 +28,8 @@
         function init(){
 
         vm.searchFlag=false;
+            vm.logged=false;
+           // checkLoggedIn();
 
         }init();
 
@@ -35,8 +37,30 @@
 
         vm.search = search;
         vm.getAlbumPage = getAlbumPage;
+        vm.checkLoggedIn=checkLoggedIn;
 
         vm.addToPlaylist=addToPlaylist;
+
+
+        function checkLoggedIn() {
+            //var deferred=$q.defer();
+            UserService
+                .loggedin()
+                .then(function(user){
+                    if(user=='0'){
+                        // deferred.reject();
+                        vm.logged=false;
+                        console.log(vm.logged);
+
+                    }
+                    else{
+                        vm.logged=true;
+                        console.log(vm.logged);
+                    }
+                });
+
+
+        }
 
         function trust(url) {
             // var url = obj.tracks

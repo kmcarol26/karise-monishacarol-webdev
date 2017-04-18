@@ -16,7 +16,7 @@
         .module("MusicApp")
         .controller("SearchController", SearchController); // Instantiate a Controller called LoginController with constructor loginController
 
-    function SearchController($location, MusicService,UserService,$scope,$routeParams, $sce,myService,$window,$rootScope) { //injecting UserService
+    function SearchController($location, MusicService,UserService,$scope,$routeParams, $sce,$window) { //injecting UserService
 
         console.log("SearchController ");
         var vm = this;

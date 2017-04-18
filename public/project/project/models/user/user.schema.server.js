@@ -4,7 +4,7 @@
 module.exports = function(){
     var mongoose = require("mongoose");
     var UserSchema = mongoose.Schema({
-        username : {type:String,require:true},
+        username : {type:String,required:true},
         password : {type:String},
         firstName: String,
         lastName : String,
@@ -12,11 +12,11 @@ module.exports = function(){
         gender   :String,
         dob      :{type: Date},
         role    : {type:String , enum: ['admin','user'],default:'user'},
-        following :[String],
-        followers:[String],
+        following :[{type: mongoose.Schema.Types.ObjectId, ref:'UsersModel'}],
+        followers:[{type: mongoose.Schema.Types.ObjectId, ref:'UsersModel'}],
        // playlist:[],
         favorites : [{type: mongoose.Schema.Types.ObjectId, ref:'SongModel'}],
-        img:String,
+        img:{type:String },
         about:String,
         city:String,
         google:{

@@ -41,7 +41,7 @@
 
 
 
-<div  id="top-pad" class="container" style="padding-top: 60px;">
+<div  id="top-pad-1" class="container" style="padding-top: 60px;">
     <h1 class="page-header">Hi {{model.user.firstName}} !</h1>
     <div id="profile-form" class="container">
         <div ng-show="model.error" class="alert alert-danger" role="alert">
@@ -57,7 +57,7 @@
 
     <span class="pull-right">
  <button  class="btn btn-danger pull-right" value="Deactivate Account" type="submit"
-         ng-click="model.unregister(model.currentUser._id)">Deactivate Account</button>
+         ng-click="model.unregister(model.user._id)">Deactivate Account</button>
 
     </span>
     <div class="row">
@@ -81,23 +81,10 @@
                 </form>
             </div>
 
-          <!--  <div class="form-group" >
-                <form action="/api/upload"  method="post" enctype="multipart/form-data">
-                    <input  class="text-center center-block well well-sm" name="myFile"   type="file" class="form-control"/>
-
-                    <input  name="userId" value="{{model.user}}"   style="display: none"/>
-                    <button type="submit"   class="btn btn-block btn-primary">Upload Image</button>
-
-                </form>
-            </div>-->
         </div>
         <!-- edit form column -->
         <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
-         <!--   <div class="alert alert-info alert-dismissable">
-                <a class="panel-close close" data-dismiss="alert">×</a>
-                <i class="fa fa-coffee"></i>
-                This is an <strong>.alert</strong>. Use this to show important messages to the user.
-            </div> -->
+
             <h3>Personal Info</h3>
             <form class="form-horizontal" role="form">
                 <div class="form-group">
@@ -159,6 +146,55 @@
                     </div>
                 </div>
                     </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Followers</label>
+                    <div class="col-md-8">
+                        <div class="panel panel-danger">
+                            <div class="panel-body">
+                                <div>
+                                You have {{model.followers.length}} followers. </div>
+
+                                    <div ng-repeat="follower in model.followers">
+
+                                    <a href="#/user/{{model.user._id}}/friends/{{follower._id}}">
+                                       {{follower.firstName}} {{follower.lastName}} </a>
+                                    </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Following</label>
+                    <div class="col-md-8">
+                        <div class="panel panel-danger">
+                            <div class="panel-body">
+                                You are following {{model.following.length}} people.
+
+                                    <div  class="container" ng-repeat="following in model.following">
+                                        <span >
+                                 <a href="#/user/{{model.user._id}}/friends/{{following._id}}">
+                                     {{following.firstName}} {{following.lastName}}</a>
+                                            </span>
+<span>
+
+                <button  class="btn btn-success" ng-click="model.unfollow(following._id)">Unfollow</button>
+
+</span>
+
+                                    </div>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
 
                 <div class="form-group">
                     <label class="col-md-3 control-label"></label>

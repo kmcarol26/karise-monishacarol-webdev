@@ -14,7 +14,7 @@
         .module("MusicApp")
         .controller("PublicProfileController", PublicProfileController); // Instantiate a Controller called LoginController with constructor loginController
 
-    function PublicProfileController($location, MusicService,UserService,$scope,$routeParams,myService,$sce) { //injecting UserService
+    function PublicProfileController($location, MusicService,UserService,$routeParams,$sce) { //injecting UserService
 
         console.log("PublicProfileController");
         var vm = this;
@@ -22,7 +22,11 @@
         vm.getArtistPage=getArtistPage;
         vm.follow=follow;
         vm.unfollow=unfollow;
-       // vm.checkFollowing=checkFollowing;
+        vm.getFavorites=getFavorites;
+       vm.checkLoggedIn=checkLoggedIn;
+       vm.logout=logout;
+
+
 
 
         function  init() {
@@ -33,6 +37,7 @@
                 if(user){
                     vm.friend = user;
                     vm.friend_followers=vm.friend.followers;
+                    vm.followersCount=vm.friend_followers.length;
                     var followers=vm.friend_followers;
                     if(followers.indexOf(vm.userId) != -1){
                         vm.following= true;
@@ -45,13 +50,66 @@
 
                 }
             });
+            checkLoggedIn();
+            getFavorites();
+
+       }init();
+
+        function logout(){
+            UserService
+                .logout()
+                .then(function(){
+                    $location.url('/login');
+                })
+        }
 
 
 
 
+        function checkLoggedIn() {
+            //var deferred=$q.defer();
+            UserService
+                .loggedin()
+                .then(function(user){
+                    if(user=='0'){
+                        // deferred.reject();
+                        vm.logged=false;
+                        console.log(vm.logged);
+
+                    }
+                    else{
+                        vm.logged=true;
+                        console.log(vm.logged);
+                    }
+                });
 
 
-        }init();
+        }
+
+
+
+        function getFavorites(songId){
+
+            console.log("get song from fav controller");
+            UserService
+                .getFavorites(vm.friendId)
+                .then(function(result){
+                    if(result){
+                        vm.friend=result;
+                        vm.favorites=vm.friend.favorites;
+
+                        console.log("fav"+vm.friend.favorites);}
+
+                    // $location.url("/user/"+vm.userId+"/friends/"+vm.friendId);
+                    else{
+                        //location.reload();
+                        //  $location.url("/user/"+vm.userId+"/friends/"+vm.friendId);
+                        vm.favorites ="No songs"
+                    }
+                });
+
+
+        }
 
         function unfollow(){
             console.log("unfollow controller");
@@ -97,7 +155,7 @@
 
             console.log("get artist page ");
 
-            $location.url("/user/"+vm.userId+"/home/artist/"+artistId) ;
+            $location.url("/user/home/artist/"+artistId) ;
 
         }
 

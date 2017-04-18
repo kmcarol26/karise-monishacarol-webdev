@@ -131,13 +131,6 @@
                 {{result.album.name}}</a>
                 </br>
                 </br>
-                <!-- <div>
-
-                     Listen :
-                 <audio controls>
-                     <source src={{model.trust(result["preview_url"])}}>
-                 </audio>
-                 </div>-->
 
 
                 <audio id= "yourAudio"  controls>
@@ -147,29 +140,6 @@
 
                 <button id="audioControl" class="btn btn-success" type="submit"
                         ng-click="model.addToPlaylist(result.id,result.name,result.artists,result.album.name)">Add to Playlist</button>
-
-                <!--
-                <a href="" id="audioControl" class="btn btn-sm btn-danger">
-                    <span class="glyphicon glyphicon-music"></span> Listen</a>
-                 <button id="audioControl"  type="submit">Play</button>
-                <script>
-                    var yourAudio = document.getElementById('yourAudio'),
-                        ctrl = document.getElementById('audioControl');
-
-                    ctrl.onclick = function () {
-
-                        // Update the Button
-                        var pause = ctrl.innerHTML === 'Pause';
-                        ctrl.innerHTML = pause ? 'Play' : 'Pause';
-
-                        // Update the Audio
-                        var method = pause ? 'pause' : 'play';
-                        yourAudio[method]();
-
-                        // Prevent Default Action
-                        return false;
-                    };
-                </script>-->
 
             </div>
 

@@ -108,32 +108,7 @@ module.exports = function () {
 
 
         }
-/*
-        function removeSong(userId,songId){
 
-            console.log("in user model removeSong");
-            console.log(songId);
-            console.log(userId);
-            var deferred =  q.defer();
-
-            UsersModel.findOneAndUpdate(
-                {_id: userId},
-                {$pull: {playlist : {_id:songId}}},
-                {safe: true},
-                function (err,user) {
-                    if(err){
-                        deferred.reject(err);
-                    }
-                    else{
-                        deferred.resolve(user);
-                    }
-
-                });
-            return deferred.promise;
-
-
-        }
-*/
         function createNewUser(user){
 
 
@@ -350,15 +325,7 @@ function editUser(userId,user){
             ;
         return deferred.promise;
 
-        //var id=new  Date().getTime();;
-        /*
-         var newSong={
-         _id:id,
-         song:song.song,
-         albumName:song.albumName,
-         artists:song.artists
 
-         }*/
     }
 
 
@@ -407,14 +374,18 @@ function editUser(userId,user){
 
         function findUserById(userId) {
             var deferred =  q.defer();
-           // console.log(userId);
+           console.log("find user by id model");
             UsersModel.findById(userId,function ( err,user) {
                  if(err){
+                     console.log(err);
                      deferred.reject(err);
 
                  }
 
                  else{
+                     console.log("sucess");
+                     console.log(user);
+
                      deferred.resolve(user);}
 
 
@@ -422,6 +393,7 @@ function editUser(userId,user){
             return deferred.promise;
         }
         function findUserByCredentials(username, password) {
+        console.log("findUserByCredentials");
             var deferred =  q.defer();
             UsersModel.findOne({
                 username : username,
