@@ -36,7 +36,7 @@
 
             console.log("inside get artistINFO  by name");
             console.log(name);
-            return $http.get("http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist="+name+"&api_key=a75486041726cfdd96cfe551d541c255&format=json")
+            return $http.get("https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist="+name+"&api_key=a75486041726cfdd96cfe551d541c255&format=json")
                 .then(function (response) {
 
                     console.log("successs");
