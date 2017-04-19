@@ -7,7 +7,7 @@ body {
     background: url("../img/nightsky.jpg") no-repeat;
     background-size: cover;
     background-position: bottom;
-    padding-bottom: 5px;
+    padding-bottom: 15px;
 }
 
 .header-nightsky .navbar-nav>li>a {
@@ -25,7 +25,7 @@ body {
     background-color: transparent;
     min-width: 70px;
     border: none;
-    height:70px;
+    height:90px;
 }
 
 .header-nightsky .navbar-default .navbar-nav>.open>a,
@@ -116,7 +116,7 @@ body {
 @media screen and (max-width: 767px) {
 
     .header-nightsky .navbar-default .navbar-nav .open .dropdown-menu>li>a{
-        color: #fff;
+        color: white;
         font-size: 16px;
     }
 

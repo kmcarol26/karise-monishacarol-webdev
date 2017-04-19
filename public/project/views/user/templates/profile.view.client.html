@@ -65,8 +65,7 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
 
             <div class="text-center">
-
-                <img src="{{model.user.img}}" class="avatar img-circle img-thumbnail" alt="No profile image">
+                <img src="{{model.user.img}}" class="avatar img-circle img-thumbnail" onerror="this.src='no-user.png';" alt="No profile image">
 
                 <h6>Upload a different photo...</h6>
                 <!--
@@ -88,14 +87,14 @@
             <h3>Personal Info</h3>
             <form class="form-horizontal" role="form">
                 <div class="form-group">
-                    <label class="col-lg-3 control-label">First Name:</label>
+                    <label class="col-lg-3 control-label">First Name</label>
                     <div class="col-lg-8">
 
                         <input ng-model="model.user.firstName" type="text" class="form-control" id="first-name" placeholder="Alice">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-lg-3 control-label">Last name:</label>
+                    <label class="col-lg-3 control-label">Last name</label>
                     <div class="col-lg-8">
                         <input ng-model="model.user.lastName" type="text" class="form-control" id="last-name"
                                placeholder="Wonderland">
@@ -103,20 +102,20 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="col-lg-3 control-label">Email:</label>
+                    <label class="col-lg-3 control-label">Email</label>
                     <div class="col-lg-8">
                         <input ng-model="model.user.email" type="email" class="form-control" id="email" placeholder="alice@wonderland.com">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-lg-3 control-label">City:</label>
+                    <label class="col-lg-3 control-label">City</label>
                     <div class="col-lg-8">
                         <input ng-model="model.user.city" type="text" class="form-control" id="city" placeholder="City">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-3 control-label">About Me :</label>
+                    <label class="col-md-3 control-label">About Me </label>
                     <div class="col-md-8">
                         <textarea ng-model="model.user.about" type="text" class="form-control" id="about"
                                    placeholder="Describe Yourself"  style="height:150px"> </textarea>
@@ -125,7 +124,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="col-md-3 control-label">My Playlist</label>
+                    <label class="col-md-3 control-label">My Favorites</label>
                     <div class="col-md-8">
                     <div class="panel panel-warning">
                              <div class="panel-body">

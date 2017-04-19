@@ -1,3 +1,4 @@
+<div id="bg1"><
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="header-nightsky">
         <nav class="navbar navbar-default">
@@ -46,10 +47,13 @@
 </nav>
 
 <!----------------------------------------------------SEARCH BAR VIEW----------------------------------------------------------------->
+<div id="cover1">
+<div style="padding-top: 70px" class="container-fluid">
 
-<div>
 
-    <b><h2 style="color:#0066ff" class="container text-center"> What are you looking for today? </h2>
+<div >
+
+    <b><h2 style="color:white" class="container text-center"> What are you looking for today? </h2>
 
     </b>
     <form id="top-pad-1">
@@ -73,14 +77,14 @@
                 </div>
 
                 <div class="container-fluid">
-                    <label>Search By </label>
-                    <label class="radio-inline">
+                    <label style="color:white">Search By </label>
+                    <label style="color:white" class="radio-inline">
                         <input ng-model="model.criteria" type="radio" name="search" value="artist" id=artist/>Artist
                     </label>
-                    <label class="radio-inline">
+                    <label style="color:white" class="radio-inline">
                         <input ng-model="model.criteria" type="radio" name="search" value="album" id=album/>Album
                     </label>
-                    <label class="radio-inline">
+                    <label style="color:white" class="radio-inline">
                         <input ng-model="model.criteria" type="radio" name="search" value="song" id=song/>Song
                     </label>
                 </div>
@@ -94,29 +98,28 @@
 <!-- ----------------------------------------------------SEARCH RESULTS VIEW------------------------------------------------------------- -->
             <div ng-if="model.searchFlag == true">
 
-            <div  ng-switch="model.criteria">
+            <div  ng-switch="model.criteria1">
 
 
-                <div id="top-pad" class="container">
-
-                <div  ng-switch-when="artist" id="top-pad" ng-repeat="result in model.searchResults.artists.items">
+                <div class="container" ng-switch-when="artist" id="top-pad" ng-repeat="result in model.searchResults.artists.items">
                     <div  class="container align-content-center">
                         <div class="col-xs-4">
-                            <a><img class="img-responsive"  ng-src="{{result.images[0].url}}"> </a>
+                            <a><img class="img-responsive"  ng-src="{{result.images[1].url}}"> </a>
                         </div>
-                        <div class="col-xs-8">
-                            <h2> <a href="" style="color:#cc3300" ng-click="model.getArtistPage(result.id)">{{result.name}}</a></h2>
+                        <div class="col-xs-4">
+                            <h2> <a href="" style="color:lightgoldenrodyellow" ng-click="model.getArtistPage(result.id)">{{result.name}}</a></h2>
                         </div>
+
                     </div>
                     </br>
                     </br>
                 </div>
-                    </div>
-                <div id="top-pad" class="container">
 
-                    <div  ng-switch-when="album" id="top-pad"   ng-repeat="result in model.searchResults.albums.items">
+
+
+                    <div id="top-pad" class="container"  ng-switch-when="album"   ng-repeat="result in model.searchResults.albums.items">
                         <div class="col-xs-6">
-                            <div class="container-fluid">
+
                                 <div id="top-pad-1">
                                     <img class="img-responsive" ng-src="{{result.images[0].url}}"></img></div>
                                 <div class="text-sm-left"><h4><a style="color:#cc3300" href=""
@@ -124,18 +127,16 @@
                                 </a></h4></div>
 
                                 <div class="text-sm-left">
-                                    <a href="" ng-click="model.getArtistPage(result.artists[0].id)" style="color:black">{{result.artists[0].name}} </a></div>
-                            </div>
+                                    <a href="" ng-click="model.getArtistPage(result.artists[0].id)" style="color:lightgoldenrodyellow">{{result.artists[0].name}} </a></div>
+
                             </br>
                             </br>
                             </br>
                         </div>
                     </div>
 
-                </div>
 
-                <div class="container">
-                <div  ng-switch-when="song" id="top-pad"   ng-repeat="result in model.searchResults.tracks.items">
+                <div class="container" ng-switch-when="song" id="top-pad"   ng-repeat="result in model.searchResults.tracks.items">
                     <div class="col-xs-12 col-lg-6">
                         <div class="container">
 
@@ -154,18 +155,19 @@
                             </div>
 
 
-                            <div class="text-sm-center">   <p class="h2"> <a href="" style="color:#cc3300">{{result.name}}</a></p>
+                            <div class="text-sm-center">   <p class="h2">
+                                <a href="" style="color:#cc3300">{{result.name}}</a></p>
                             </br></div>
 
 
 
                             <div class="text-sm-left" >
-                                <h3><a href="" ng-click="model.getAlbumPage(result.album.id,result.album.name)">
+                                <h3><a href="" style="color:lightsteelblue" ng-click="model.getAlbumPage(result.album.id,result.album.name)">
                                     Album: {{result.album.name}}</a></h3></div>
 
 
                             <div class="text-sm-right" ng-repeat="artist in result.artists">
-                 <h4>   <a href="" class="text-sm-right" style="color:black" ng-click="model.getArtistPage(artist.id)">
+                 <h4>   <a href="" class="text-sm-right" style="color:lightgoldenrodyellow" ng-click="model.getArtistPage(artist.id)">
                        {{artist.name}}</a> </h4>
 
                 </div>
@@ -179,18 +181,20 @@
                     </br>
 
                 </div>
-                </div>
+
                 </div>
                     </div>
+
+
                 </div>
 
 
 
 <!---------------------------------------------------POPULAR MOVIES VIEW-------------------------------------------------->
 
-            <div ng-if="model.searchFlag != true && model.logged == true">
+            <div ng-if="model.logged == true && model.searchFlag == false">
 
-            <h1 id="top-pad-5" style="font-weight: bold" class="h1 container-fluid text-center"> Popular Now</h1>
+            <h1 id="top-pad-5" style="font-weight: bold;color:darkgray" class="h1 container-fluid text-center"> Popular Now</h1>
             <div id="top-pad" class="container">
                 <div class="col-lg-7 col-xs-6">
 
@@ -202,11 +206,11 @@
                             <div id="top-pad-1">
                                 <img class="img-responsive" ng-src="{{track.image[3][&quot;#text&quot;]}}"></img></div>
                             <div class="text-sm-left"><h4><a style="color:#cc3300" href=""
-                                                             ng-click="model.getAlbumPage(album.id)">
+                                                             ng-click="model.search(track.name,'song')">
                                 {{track.name}}</a></h4></div>
 
                             <div class="container-fluid text-sm-left">
-                                <a href="" ng-click="model.getArtistPage(track.artist.name)" style="color:black"> {{track.artist.name}}</a></div>
+                                <a href="" ng-click="model.search(track.artist.name,'artist')" style="color:ghostwhite"> {{track.artist.name}}</a></div>
 
                         </div>
                         </br>
@@ -215,7 +219,7 @@
                     </div>
                     </div>
                 <div class="col-lg-5 col-xs-6">
-                    <h3>Find friends</h3>
+                    <h2 style="color:whitesmoke">Find friends</h2>
 
                     <div class="input-group input-group-lg">
 
@@ -247,9 +251,9 @@
 
 <!-- --------------------------------------------------------------------------------------------------------->
 
-<div ng-if="model.searchFlag != false && model.logged == false">
+<div  ng-if="model.logged == false  && model.searchFlag == false">
 
-    <h1 id="top-pad-5" style="font-weight: bold" class="h1 container-fluid text-center"> Popular Now</h1>
+    <h1 id="top-pad-5" style="font-weight: bold; color:floralwhite;font-family:'tahoma'" class="h1 container-fluid text-center"> Popular Now</h1>
     <div id="top-pad" class="container">
 
 
@@ -261,11 +265,11 @@
                     <div id="top-pad-1">
                         <img class="img-responsive" ng-src="{{track.image[3][&quot;#text&quot;]}}"></img></div>
                     <div class="text-sm-left"><h4><a style="color:#cc3300" href=""
-                                                     ng-click="model.getAlbumPage(album.id)">
+                                                     ng-click="model.search(track.name,'song')">
                         {{track.name}}</a></h4></div>
 
                     <div class="container-fluid text-sm-left">
-                        <a href="" ng-click="model.getArtistPage(track.artist.name)" style="color:black"> {{track.artist.name}}</a></div>
+                        <a href="" ng-click="model.search(track.artist.name,'artist')" style="color:mintcream"> {{track.artist.name}}</a></div>
 
                 </div>
                 </br>
@@ -278,6 +282,11 @@
 
     </div>
 </div>
+</div>
+
+
+</div>
+    </div>
 
 
 

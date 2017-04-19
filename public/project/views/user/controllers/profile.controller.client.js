@@ -116,7 +116,7 @@ function getFavorites(userId){
                 function (response) {
                     console.log("removed");
 
-                   $location.url("/user/"+vm.userId) ;
+                   location.reload() ;
 
                 });
 

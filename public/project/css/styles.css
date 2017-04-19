@@ -1,3 +1,23 @@
+
+#grad {
+    background:
+            radial-gradient(
+                    #2f3672,
+                    #773af2
+            );
+}
+#bg1 {
+    background: url(../img/black-with-stars.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#grad1 {
+   background-image: url(../img/black-with-stars.jpg);
+
+
+}
 #searchBar{
     position : relative;
         left:350px;
@@ -13,11 +33,7 @@
     z-index: 1;
 
 }
-#top-pad{
-    position:relative;
-    top:100px;
 
-}
 #top-pad-1{
     padding-top:10px;
 }

@@ -61,9 +61,37 @@ module.exports = function () {
         console.log(songId);
         console.log("in user model deleteSONG");
         var deferred =  q.defer();
+
+
+        UsersModel.update(
+            {_id:userId},
+            {
+                $pull:
+                    {
+                        favorites:songId
+                    }
+            },function (err,user) {
+                if (err) {
+                    console.log(err);
+                    deferred.reject(err);
+                }
+                else {
+
+                    console.log("success"+user);
+                    deferred.resolve(user);
+                }
+            }
+
+
+
+
+        );
+        return deferred.promise;}
       // var sid= mongoose.Types.ObjectId('songId');
        //console.log("sid"+sid);
         // userModel.findByIdand
+
+        /*
         UsersModel.findByIdAndUpdate(
              userId,
             {$pull: {"favorites" : {_id:songId}}},
@@ -82,8 +110,8 @@ module.exports = function () {
             });
 
         return deferred.promise;
+*/
 
-    }
 
         function findUserByGoogleId(googleId){
 

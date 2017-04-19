@@ -4,6 +4,7 @@
 module.exports = function(app, model){
     //app.use(express.bodyParser());
     console.log("server");
+    var bcrypt = require("bcrypt-nodejs");
     var passport      = require('passport');
     var LocalStrategy = require('passport-local').Strategy;
     passport.use(new LocalStrategy(localStrategy));
@@ -174,15 +175,16 @@ module.exports = function(app, model){
 
     function removeSong(req,res){
 
-        console.log("server remove song");
+        console.log(" server remove song");
         // var songId = req.body.songId;
 
-        //   console.log("server songid"+songId);
+
         var  userId= req.user._id;
-        //  console.log(req.params.songId);
-        var songId=req.body;
-        console.log("client server removeSong");
-        // console.log(userId);
+         console.log(userId);
+        var songId=req.body.songId;
+        console.log("server songid"+songId);
+
+        //console.log(userId);
         model
             .UsersModel
             .removeSong(userId,songId)
@@ -418,11 +420,12 @@ module.exports = function(app, model){
 
 
     function signUp (req, res) {
+
         var user = req.body;
 
         var d = new Date(user.year,user.month, user.day,00,00,00);
         var newUser={firstName: user.firstName, lastName: user.lastName, email: user.email,username:user.username,
-            password:user.password , dob : d ,gender: user.gender,role: user.role};
+            password:bcrypt.hashSync(user.password) , dob : d ,gender: user.gender,role: user.role};
 
         //console.log(user);
         model.UsersModel
@@ -455,7 +458,7 @@ module.exports = function(app, model){
 
                 function(user) {
 
-                    if(user) {
+                    if(user && bcrypt.compareSync(password, user.password)) {
                         console.log(user);
                         return done(null, user);
                     } else {

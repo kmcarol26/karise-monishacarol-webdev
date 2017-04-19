@@ -38,11 +38,13 @@
 
         function init(){
 
-            //vm.searchFlag=false;
+
+            vm.searchFlag=false;
            // vm.logged=false;
 
            // vm.user=currentUser;
            // vm.userId=currentUser._id;
+            vm.init = true;
             checkLoggedIn();
            // checkFavorites();
             getTopTracks();
@@ -83,6 +85,7 @@
                         console.log(results);
                         console.log("back in ALBUM controller ");
 
+
                         vm.people=results;
                         console.log(vm.people);
                     },function(err){
@@ -98,6 +101,7 @@
 
 
         function search(str,criteria) {
+            vm.criteria1=criteria;
 
             console.log("search ");
             console.log(str);
@@ -106,11 +110,16 @@
                 .then(
                     function(results) {
                         console.log("back in controller");
+
                         vm.searchFlag=true;
+
                         console.log(vm.searchFlag);
+                        //location.reload();
 
                         vm.searchResults=results;
+
                         console.log(vm.searchResults);
+
 
 
 
@@ -261,6 +270,7 @@ function getTopTracks () {
                 .addToPlaylist(songId,songName,artists,albumName,vm.userId)
                 .then(function(result){
                     vm.message="Song added to your playlist";
+                    getFavorites(vm.userId);
 
                 });
 

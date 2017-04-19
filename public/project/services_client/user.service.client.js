@@ -34,8 +34,8 @@
 
             console.log("client remove song");
             console.log(songId);
-            // var obj={userId:userId,songId:songId};
-            return $http.put('/api/user/removeSong',songId)
+            var obj={songId:songId};
+            return $http.put('/api/user/removeSong',obj)
                 .then(function(response){
                     return response.data;
                 });
