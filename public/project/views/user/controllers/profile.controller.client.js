@@ -30,6 +30,7 @@
 
             getFavorites(currentUser._id);
             checkFollowers();
+            checkFollowing();
 
         }
 

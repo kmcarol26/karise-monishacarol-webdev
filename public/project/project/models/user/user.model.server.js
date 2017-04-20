@@ -426,7 +426,7 @@ function editUser(userId,user){
             var deferred =  q.defer();
             UsersModel.findOne({
                 username : username
-               
+
             },
                 function(err,user){
                 if(err){

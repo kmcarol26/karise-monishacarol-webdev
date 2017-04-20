@@ -19,7 +19,7 @@
         vm.getFavorites = getFavorites;
         vm.checkLoggedIn = checkLoggedIn;
         vm.logout = logout;
-        vm.checkfollowing = checkfollowing;
+        vm.checkFollowing = checkFollowing;
 
 
         function init() {
