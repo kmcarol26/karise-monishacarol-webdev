@@ -133,6 +133,7 @@
 
 
         function checkLoggedIn() {
+            console.log("checkloggedin");
             //var deferred=$q.defer();
             UserService
                 .loggedin()
@@ -276,10 +277,6 @@ function getTopTracks () {
 
 
         }
-
-
-
-
 
 
     }})();

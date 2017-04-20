@@ -2,37 +2,28 @@
  * Created by Monisha on 3/30/2017.
  */
 module.exports = function(app, model){
-    //app.use(express.bodyParser());
+
     console.log("server");
+
     var bcrypt = require("bcrypt-nodejs");
     var passport      = require('passport');
     var LocalStrategy = require('passport-local').Strategy;
     passport.use(new LocalStrategy(localStrategy));
-    app.post('/api/login',passport.authenticate('local'), login);
-
-
+    app.post('/api/project/login',passport.authenticate('local'), login);
     var auth = authorized;
-
-
     passport.serializeUser(serializeUser);
     passport.deserializeUser(deserializeUser);
-
     var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
     app.put('/api/user/removeSong',removeSong);
-
-    app.post  ('/api/loggedin', loggedin);
+    app.post  ('/api/project/loggedin', loggedin);
     app.get('/api/user/:userId/searchPeople/:name',searchPeople);
     app.get("/api/user",findUser);
-
     app.get("/api/user/:userId",findUserById);
     app.put('/api/user/follow',follow);
     app.put('/api/user/unfollow',unfollow);
-
-    //app.get('/api/user/:userId/checkfollow',checkfollow);
     app.put("/api/user/:userId",checkSameUser,updateUser);
     app.delete("/api/user/:userId",checkSameUser,unregister);
-
     app.post("/api/user",checkSameUser,createUser);
     app.post('/api/logout',logout);
     app.post ('/api/signup',signUp);
@@ -42,21 +33,17 @@ module.exports = function(app, model){
     app.delete("/api/admin/:userId",checkAdmin,deleteUser);
     app.put("/api/admin/:userId",checkAdmin,editUser);
     app.post("/api/admin/newUser",checkAdmin,createNewUser);
-
     app.put('/api/addSong',addSong);
     app.get('/api/user/:userId/favorites',getFavorites);
-
     var multer = require('multer');
     var upload = multer({ dest: __dirname+'/../../../../public/uploads' });
     app.post ("/api/upload", upload.single('myFile'), uploadImage);
-
 
     var googleConfig = {
         clientID     : process.env.GOOGLE_CLIENT_ID,
         clientSecret : process.env.GOOGLE_CLIENT_SECRET,
         callbackURL  : process.env.GOOGLE_CALLBACK_URL
     };
-
 
     app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
     app.get('/google/callback',
@@ -67,6 +54,9 @@ module.exports = function(app, model){
 
     passport.use(new GoogleStrategy(googleConfig, googleStrategy));
 
+
+
+
     function googleStrategy(token, refreshToken, profile, done) {
         model.
         UsersModel
@@ -74,11 +64,11 @@ module.exports = function(app, model){
             .then(
                 function(user) {
                     if(user) {
-                        console.log(user);
-                        console.log("if user");
+
                         return done(null, user);
+
                     } else {
-                        console.log("else");
+
                         var email = profile.emails[0].value;
                         var emailParts = email.split("@");
                         var newGoogleUser = {
@@ -95,19 +85,23 @@ module.exports = function(app, model){
                     }
                 },
                 function(err) {
-                    console.log("err");
-                    console.log(err);
-                    if (err) { return done(err); }
+
+                    if (err) { return done(err);
+
+                    }
                 }
             )
             .then(
                 function(user){
-                    console.log("hi");
-                    console.log(user);
+
                     return done(null, user);
+
                 },
                 function(err){
-                    if (err) { return done(err); }
+
+                    if (err) {
+                        return done(err);
+                    }
                 }
             );
     }
@@ -120,12 +114,14 @@ module.exports = function(app, model){
             .getFavorites(userId)
             .then(
                 function(newUser){
-                    console.log("success");
-                    console.log(newUser);
+
                     res.json(newUser);
+
                 },
                 function(error){
+
                     res.sendStatus(400).send(error);
+
                 }
             );
 
@@ -133,6 +129,7 @@ module.exports = function(app, model){
 
 
     function addSong(req,res){
+
         var songId=req.body.songId;
         var song = req.body.song;
         var albumName=req.body.albumName;
@@ -140,32 +137,26 @@ module.exports = function(app, model){
         var userId=req.body.userId;
         var newEntry={spotifyId:songId,song:song,artists:artists,albumName:albumName};
 
-        console.log("server addSong");
 
-        console.log(newEntry);
-        console.log(userId);
         model
             .SongModel
             .addSong(newEntry)
             .then(
                 function(newSong){
-                    console.log("song success");
-                    //   console.log(newSong);
 
                     model
                         .UsersModel
                         .addSong(userId,newSong._id)
                         .then(function(user){
-                            //console.log(" user success");
-                            //console.log(user);
-                            //res.json(user);
+
                         });
 
-                    console.log("after song add"+newSong);
                     res.json(newSong);
                 },
                 function(error){
+
                     res.sendStatus(400).send(error);
+
                 }
             );
 
@@ -175,40 +166,32 @@ module.exports = function(app, model){
 
     function removeSong(req,res){
 
-        console.log(" server remove song");
-        // var songId = req.body.songId;
-
-
         var  userId= req.user._id;
-         console.log(userId);
         var songId=req.body.songId;
-        console.log("server songid"+songId);
 
-        //console.log(userId);
         model
             .UsersModel
             .removeSong(userId,songId)
             .then(
                 function(song){
-                    console.log("success");
-                    console.log(song);
+
                     res.json(song);
+
                 },
                 function(error){
+
                     res.sendStatus(400).send(error);
+
                 }
             );
     }
 
     function checkSameUser(req,res,next){
-        console.log("check same user");
-        console.log(req.user._id);
-        console.log("params");
-        console.log(req.params.userId);
+
         if(req.user && req.user._id == req.params.userId){
 
-            console.log("success");
             next();
+
         }
         else{
             res.send(401);
@@ -217,11 +200,16 @@ module.exports = function(app, model){
 
 
     function checkAdmin(req,res,next){
+
         if(req.user && req.user.role == 'admin'){
+
             next();
+
         }
         else{
+
             res.send(401);
+
         }
     }
     function createNewUser(req,res){
@@ -232,12 +220,14 @@ module.exports = function(app, model){
             .createNewUser(user)
             .then(
                 function(newUser){
-                    console.log("success");
-                    console.log(newUser);
+
                     res.json(newUser);
+
                 },
                 function(error){
+
                     res.sendStatus(400).send(error);
+
                 }
             );
 
@@ -252,10 +242,14 @@ module.exports = function(app, model){
             .editUser(userId,newUser)
             .then(
                 function () {
+
                     res.sendStatus(200);
+
                 },
                 function(error){
+
                     res.sendStatus(400).send(error);
+
                 }
             );
 
@@ -263,14 +257,19 @@ module.exports = function(app, model){
 
     function unregister(req,res){
 
-        model.UsersModel.deleteUser(req.params.userId, req.user)
+        model
+            .UsersModel
+            .deleteUser(req.params.userId, req.user)
             .then(
                 function () {
+
                     res.send(200);
 
                 },
                 function () {
+
                     res.sendStatus(400).send(error);
+
                 }
             );
 
@@ -281,72 +280,66 @@ module.exports = function(app, model){
 
 
     function findAllUsers(req,res){
+
         if(req.user && req.user.role == 'admin') {
+
             model
                 .UsersModel
                 .findAllUsers()
                 .then(function (users) {
+
                     res.json(users);
+
                 });
         }
         else{
+
             res.send(401);
+
         }
 
     }
 
     function isAdmin(req,res){
+
         res.send(req.isAuthenticated() && req.user.role == "admin" ? req.user : '0');
 
     }
 
     function loggedin(req,res){
+
         res.send(req.isAuthenticated() ? req.user : '0');
 
     }
 
     function uploadImage(req, res) {
+
         var myFile = req.file;
-        console.log("file"+myFile);
         var filename = myFile.filename;
-        console.log(filename);
-        console.log(req.body);
         var userId=req.user._id;
-        console.log("userid"+userId);
         var img = req.protocol + '://' + req.get('host') + "/uploads/" + filename;
 
-        model.UsersModel.updateImage(userId, img).then(
+        model
+            .UsersModel
+            .updateImage(userId, img)
+            .then(
             function (img) {
+
                 res.redirect("/project/#/user/" +userId);
+
             }
             , function (err) {
+
                 res.sendStatus(500).send(err);
 
             });
-        /*
-         model
-         .UsersModel
-         .updateUser(newUser._id, newUser)
-         .then(
-         function (status) {
-         res.statusCode(200);
-         //  res.redirect("/assignment/#/user/" + req.body.userId + "/website/" + req.body.websiteId + "/page/"
-         //   + req.body.pageId + "/widget");
-         },
-         function (error) {
-         res.statusCode(404).send(error);
-
-         }
-         );*/
 
     }
 
 
     function unfollow(req,res){
-        console.log("unfollow server");
+
         var friendId=req.body.friendId;
-        //      var friendId=req.body.friendId;
-        console.log(friendId);
         var userId=req.body.userId;
 
         model
@@ -354,22 +347,22 @@ module.exports = function(app, model){
             .unfollow(userId,friendId)
             .then(
                 function(user){
-                    console.log("success");
-                    console.log(user);
+
                     res.json(user);
+
                 },
                 function(error){
+
                     res.sendStatus(400).send(error);
+
                 }
             );
 
     }
 
     function follow(req,res){
-        console.log("follow server");
+
         var friendId=req.body.friendId;
-        //      var friendId=req.body.friendId;
-        console.log(friendId);
         var userId=req.body.userId;
 
         model
@@ -377,12 +370,14 @@ module.exports = function(app, model){
             .follow(userId,friendId)
             .then(
                 function(user){
-                    console.log("success");
-                    console.log(user);
+
                     res.json(user);
+
                 },
                 function(error){
+
                     res.sendStatus(400).send(error);
+
                 }
             );
 
@@ -392,21 +387,19 @@ module.exports = function(app, model){
 
     function searchPeople(req,res){
 
-        console.log("server searchPeople");
-
-        //var username=req.query['username'];
-        //  var userId=req.params.userId;
         var name=req.params.name;
-        model.UsersModel.searchPeople(name)
+        model
+            .UsersModel
+            .searchPeople(name)
             .then(
                 function (users,err){
                     if(users) {
-                        console.log("SERVER");
+
                         res.json(users);
 
                     }
                     else{
-                        console.log("else ");
+
                         res.sendStatus(400).send(err);
                     }
 
@@ -422,12 +415,10 @@ module.exports = function(app, model){
     function signUp (req, res) {
 
         var user = req.body;
-
         var d = new Date(user.year,user.month, user.day,00,00,00);
         var newUser={firstName: user.firstName, lastName: user.lastName, email: user.email,username:user.username,
             password:bcrypt.hashSync(user.password) , dob : d ,gender: user.gender,role: user.role};
 
-        //console.log(user);
         model.UsersModel
             .createUser(newUser)
             .then(
@@ -435,30 +426,36 @@ module.exports = function(app, model){
                     if(user){
                         req.login(user, function(err) {
                             if(err) {
+
                                 res.status(400).send(err);
+
                             } else {
 
                                 res.json(user);
+
                             }
                         });
                     }
                 },
                 function(err){
+
                     res.sendStatus(400).send(err);
+
                 }
             );
     }
 
     function localStrategy(username, password, done) {
-        console.log("local");
+
         model
             .UsersModel
             .findUserByCredentials(username, password)
             .then(
-
                 function(user) {
-
-                    if(user && bcrypt.compareSync(password, user.password)) {
+                    console.log('------------------');
+                    console.log(user);
+                    // if(user && bcrypt.compareSync(password, user.password)) {
+                    if(username && bcrypt.compareSync(password, user.password)){
                         console.log(user);
                         return done(null, user);
                     } else {
@@ -496,6 +493,7 @@ module.exports = function(app, model){
     function login(req,res){
 
         console.log("inside login");
+        console.log("project");
 
         var user=req.user;
         console.log(user);

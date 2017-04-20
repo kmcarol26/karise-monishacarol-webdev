@@ -12,7 +12,7 @@
             "loggedin":loggedin,
             "createUser": createUser,
             "deleteUser": deleteUser,
-            "login":login,
+            "userlogin":userlogin,
             "logout": logout,
             "signUp":signUp,
             "addToPlaylist":addToPlaylist,
@@ -95,7 +95,7 @@
         }
 
 function loggedin(){
-    return $http.post("/api/loggedin")
+    return $http.post("/api/project/loggedin")
         .then(function(response){
             console.log(response.data);
             return response.data;
@@ -175,13 +175,15 @@ function addToPlaylist(songId,songName,artists,albumName,userId){
 
 
 }
-        function login(user){
+        function userlogin(user){
             console.log("in user client");
             console.log(user);
 
-            return $http.post("/api/login",user)
+            return $http.post("/api/project/login",user)
                 .then(function(response){
                     console.log(response.data);
+
+                    console.log("project client");
                     return response.data;
 
                 });

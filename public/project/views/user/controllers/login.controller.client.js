@@ -13,43 +13,30 @@
     function loginController($location, UserService) { //injecting UserService
 
         console.log("login controller");
-        var vm = this; // vm (viewModel) refers to the current instance. We dont use $scope here so that we know which
-        // controller's instance objects are being used in the template
-        //$location is used to access n manipulate the URL
-        //Event Handlers are all declared here
+        var vm = this;
 
         vm.login = login;
 
         function login(user) {
             UserService
-                .login(user)
+                .userlogin(user)
                 .then(
                     function(user) {
 
                         if (user) {
-                            console.log("success");
-
-                            $location.url("/");
+                            console.log("back login controller");
+                             $location.url("/");
                         }
 },
 
                     function (err) {
-                        console.log(err);
-                        console.log("fail");
+
                         vm.error = "no such user";
-                        console.log(vm.error);
+
 
                     }
-
-
-
-
                 );
 
-
-
-
         }
-
 
     }})();

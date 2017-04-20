@@ -420,29 +420,28 @@ function editUser(userId,user){
              });
             return deferred.promise;
         }
+
         function findUserByCredentials(username, password) {
-        console.log("findUserByCredentials");
+            console.log("findUserByCredentials");
             var deferred =  q.defer();
             UsersModel.findOne({
-                username : username,
-                password : username
+                username : username
+               
             },
                 function(err,user){
                 if(err){
                     console.log(err);
                     deferred.reject(err);
-
                 }
-
                 else{
-
                     console.log(user);
+                    console.log('=======================================');
                     deferred.resolve(user);}
                 }
-
             );
             return deferred.promise;
         }
+
         function createUser(user) {
 
 
