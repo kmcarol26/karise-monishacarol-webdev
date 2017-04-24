@@ -1,8 +1,14 @@
+
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="header-nightsky">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
-                <a  class="navbar-brand" href="#/">Muse</a>
+                <div class="navbar-text pull-left">
+                    <a href="#/user/model.userId/home">
+                        <span style="font-size: 50px; color:white"class="glyphicon glyphicon-chevron-left "></span>
+                    </a>
+                </div>
+                <a  class="navbar-brand" href="#/">Home</a>
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="icon-bar"></span>
@@ -35,8 +41,7 @@
         </nav></div>
 </nav>
 
-
-<div id="top-pad" class="container-fluid">
+<div id="top-pad" class="container">
 
     <div ng-show="model.message" class="alert alert-success" role="alert">
         <!--ng-show shows this div only if model.error has some value-->
@@ -46,8 +51,8 @@
         <!--ng-show shows this div only if model.error has some value-->
         {{model.error}}
     </div>
-    <div id="top-pad" >
-        <h1>Login</h1>
+    <div id="top-pad-5" >
+        <h1 style="font-family:'Bradley Hand ITC' ;font-weight: bold;font-size:50px ">Login</h1>
 
 
 
@@ -55,7 +60,7 @@
 
         <input ng-model="user.username" class="form-control" placeholder="username"/>
         <input ng-model="user.password" class="form-control" type="password" placeholder="password"/>
-        <a class="btn btn-primary btn-block" ng-click="model.login(user)">
+        <a class="btn btn-primary btn-block" ng-click="model.login(user)" >
             Login
         </a>
 
@@ -67,10 +72,8 @@
 
 </div>
 
-
-
-
     </div>
+
 
 
 

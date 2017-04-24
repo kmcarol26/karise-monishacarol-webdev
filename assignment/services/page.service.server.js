@@ -9,6 +9,7 @@ module.exports = function(app,model){
     app.put('/api/page/:pageId',updatePage);
     app.delete('/api/page/:pageId',deletePage);
 
+
     function deletePage(req,res) {
         var pageId=req.params.pageId;
         model
@@ -54,26 +55,15 @@ module.exports = function(app,model){
 
         var websiteId=req.params.websiteId;
         var page = req.body;
-        console.log("new");
-
         console.log("server create page");
         model
             .pageModel
             .createPage(websiteId,page)
             .then(function(page){
-                console.log("success SERER");
-                if(page){
-                    console.log("success SERER");
-                    res.json(page);
-
-                }
-                else{
-                    res.sendStatus(400);
-                }
-
-           },function(err){
-                console.log("fail SERER");
-                res.sendStatus(400).send(error);
+                res.json(model.pageModel.addWidget(page._id));
+               // res.json(page);
+            }, function (err) {
+                res.sendStatus(400).send(err);
             });
 
 

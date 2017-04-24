@@ -58,27 +58,34 @@
             //noinspection JSUnresolvedFunction
             console.log("signUp contr");
 
-            UserService
-                .signUp(user)
-                .then(
+            if (user.password != user.verifyPassword) {
 
-                    function(user) {
-                      if(user){
-
-                          console.log("sign up success");
-                        var user = user;
-
-                        $location.url("/");
-                      }
-                    },function(err){
-                        vm.error="Please enter all details";
-                    });
-
-        }
+                console.log("pass");
+                vm.error = "Passwords do not match";
 
 
+            }
+            else {
+                UserService
+                    .signUp(user)
+                    .then(
+                        function (user) {
+                            if (user) {
 
-    }
+                                console.log("sign up success");
+                                var user = user;
+
+                                $location.url("/");
+                            }
+                        }, function (err) {
+                            vm.error = "Please enter all details";
+                        });
+
+            }
+        }}
+
+
+
 
 })();
 

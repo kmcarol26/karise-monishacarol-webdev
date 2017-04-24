@@ -11,33 +11,9 @@
             "findUserByUsername": findUserByUsername,
             //TODO: complete the CRUD functions
             "createUser": createUser,
-            "deleteUser": deleteUser,
-            "login":login,
-            "logout": logout,
-            "register":register
+            "deleteUser": deleteUser
         };
         return api;
-/*
-        function register(user) {
-            return $http.post("/api/register", user);
-        }*/
-        function login(user){
-            console.log("in user client");
-            console.log(user);
-
-            return $http.post("/api/login",user)
-                .then(function(response){
-                    return response.data;
-                });
-        }
-        function logout(user) {
-            return $http.post("/api/logout");
-        }
-
-
-        function register(user) {
-            return $http.post("/api/register", user);
-        }
 
         function findUserByUsername(username) {
             return $http.get("/api/user?username="+username)

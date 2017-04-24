@@ -2,7 +2,6 @@
  * Created by Monisha on 3/17/2017.
  */
 module.exports = function(){
-    var q = require("q");
     var model = {};
     var mongoose = require("mongoose");
     var pageSchema = require("./page.schema.server.js")();
@@ -36,7 +35,7 @@ module.exports = function(){
 
     function addWidget(pageId){
         var deferred = q.defer();
-        pageModel
+        PageModel
             .findById(pageId, function (err, page) {
                 page.widgets.push(pageId);
                 page.save();
@@ -50,76 +49,38 @@ module.exports = function(){
     }
 
     function deletePage(pageId) {
-        var deferred = q.defer();
-        pageModel.remove({_id : pageId},function (page,err) {
-            if(err){
-                deferred.reject();
-            }
-            else{
-                deferred.resolve(page);
-            }
-
-        });
-        return deferred.promise;
+        return  pageModel.remove({_id : pageId});
         }
 
     function findAllPagesForWebsite(websiteId) {
-        var deferred = q.defer();
-         pageModel.find({"_website":websiteId},
+        return pageModel.find({"_website":websiteId},
             function(err, result){
                 if(err){
-                    deferred.reject();
                 }
                 if(result){
-                   deferred.resolve(result);
+                    return result;
                 }
-               // else{
-                   // return err;}
+                else{
+                    return err;}
             });
-         return deferred.promise;
 
     }
 
     function createPage(websiteId,page) {
-        console.log("model");
-        console.log(page);
-        var deferred = q.defer();
         page._website=websiteId;
-         pageModel.create(page,function (page,err) {
-             if(err){
-                 console.log(err);
-                 deferred.abort();
-             }
-             else{
-                 console.log("success");
-                 deferred.resolve();
-             }
-
-         });
-        return deferred.promise;
+        return pageModel.create(page);
 
     }
 
 
 
     function findPageById(pageId) {
-        var deferred = q.defer();
-         pageModel.findById(pageId,function (page,err) {
-             if(err){
-                 deferred.reject();
-             }
-             else{
-                 deferred.resolve(page);
-             }
-
-         });
-        return deferred.promise;
+        return pageModel.findById(pageId);
 
     }
 
     function updatePage(pageId,page) {
-        var deferred = q.defer();
-         pageModel.update(
+        return pageModel.update(
             {
                 _id : pageId
             },
@@ -128,17 +89,7 @@ module.exports = function(){
                 description : page.description
 
             }
-        )  .then(function (page,err) {
-            if(err){
-                deferred.reject(err);
-            }
-            else{
-                deferred.resolve(page);
-            }
-
-        });
-        return deferred.promise;
-
+        )
 
     }
 

@@ -37,12 +37,19 @@
 #top-pad-1{
     padding-top:10px;
 }
+#top-pad-album{
+    padding-top:50px;
+}
 
 #top-pad-5{
     padding-top:5px;
 }
 #album-container{
     padding-top: 100px;
+}
+
+#warning{
+    color:red;
 }
 #album-img{
     width: auto;

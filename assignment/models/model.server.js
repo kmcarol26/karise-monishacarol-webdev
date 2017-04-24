@@ -13,6 +13,7 @@ module.exports = function(){
         pageModel : pageModel,
         widgetModel : widgetModel
 
+
     };
 
 

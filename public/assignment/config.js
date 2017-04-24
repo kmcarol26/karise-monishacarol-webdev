@@ -10,8 +10,6 @@
 
        $httpProvider.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
        $httpProvider.defaults.headers.put['Content-Type'] = 'application/json;charset=utf-8';
-       $httpProvider.defaults.headers.delete = { "Content-Type": "application/json;charset=utf-8" };
-
 
         $routeProvider
             .when("/", {   //when u see a #/login,fetch the templateUr user/login
@@ -106,12 +104,6 @@
                 controller: "FlickrImageSearchController",
                 controllerAs: "model"
 
-            })
-            .when ("/user", {
-                templateUrl: "views/user/templates/profile.view.client.html",
-                controller: "ProfileController",
-                controllerAs: "model",
-                resolve: { loggedin: checkLoggedin }
             });
 
 

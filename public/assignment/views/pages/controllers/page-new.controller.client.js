@@ -17,7 +17,6 @@
         vm.pageId = $routeParams.pid;
 
         function init() {
-           // console.log("PAGE CONTROLLER");
              PageService
                 .findAllPagesForWebsite(vm.websiteId)
                 .then(function(pages){
@@ -26,17 +25,12 @@
         }init();
 
         function createPage(page) {
-
-            console.log("PAGE CONTROLLER");
             PageService
                 .createPage(vm.websiteId, page)
                 .then(function(){
-                    console.log("PAGE CONTROLLER");
-
                             PageService
                                 .findAllPagesForWebsite(vm.websiteId)
                                 .then(function(pages){
-                                            console.log("PAGE CONTROLLER");
                                             vm.pages=pages;
                                             $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
                                         });

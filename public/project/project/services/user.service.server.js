@@ -325,7 +325,7 @@ module.exports = function(app, model){
             .then(
             function (img) {
 
-                res.redirect("/project/#/user/" +userId);
+                res.redirect("/project/#/user/profile");
 
             }
             , function (err) {

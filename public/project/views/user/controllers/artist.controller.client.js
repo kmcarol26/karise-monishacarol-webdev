@@ -20,14 +20,41 @@
         vm.signup=signUp;
         vm.login=login;
         vm.logout=logout;
+        vm.checkLoggedIn=checkLoggedIn;
 
         function  init() {
+            checkLoggedIn();
             vm.artistId=$routeParams.artistId;
             vm.getAlbums=getAlbums(vm.artistId);
             vm.getArtistById=getArtistById(vm.artistId);
 
 
         }init();
+
+
+        function checkLoggedIn() {
+            console.log("checkloggedin");
+            //var deferred=$q.defer();
+            UserService
+                .loggedin()
+                .then(function(user){
+                    if(user=='0'){
+                        // deferred.reject();
+                        vm.logged=false;
+                        console.log(vm.logged);
+
+                    }
+                    else{
+                        vm.logged=true;
+                        vm.user=user;
+                        vm.userId=user._id;
+                        console.log(vm.logged);
+                        getFavorites(vm.userId);
+                    }
+                });
+
+
+        }
 
         function logout(){
             UserService

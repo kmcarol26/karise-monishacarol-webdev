@@ -13,13 +13,9 @@ module.exports = function () {
             "findUserByUsername": findUserByUsername,
             "createUser": createUser,
             "deleteUser": deleteUser,
-            "setModel":setModel,
-                };
+            "setModel":setModel
+        };
         return api;
-
-
-
-
 
         function findUserByUsername(username) {
             console.log("in user model find by username");
@@ -62,7 +58,7 @@ module.exports = function () {
 
 
         function findUserById(userId) {
-            console.log("in userss model find by id");
+            console.log("in user model find by id");
             var deferred =  q.defer();
             console.log(userId);
              userModel.findById(userId,function ( err,user) {
@@ -131,8 +127,6 @@ module.exports = function () {
         }
 
 };
-
-
 function setModel(_model) {
     model=_model;
 }

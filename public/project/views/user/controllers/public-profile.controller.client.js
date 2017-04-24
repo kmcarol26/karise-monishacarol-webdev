@@ -24,11 +24,15 @@
 
         function init() {
 
-            vm.userId = $routeParams.uid;
-            vm.friendId = $routeParams.fid;
+           // vm.userId = $routeParams.uid;
+            checkLoggedIn();
+           vm.friendId = $routeParams.fid;
+
+
 
             checkFollowing();
-            checkLoggedIn();
+
+
             getFavorites();
 
         }
@@ -38,8 +42,19 @@
         function checkFollowing() {
             var promise = UserService.findUserById(vm.friendId);
             promise.then(function (user) {
+                if(vm.friendId == vm.userId ){
+                    vm.self = true;}
+
+                else{
+                    vm.self = false;
+                }
+
                 if (user) {
                     vm.friend = user;
+                    console.log(vm.friend);
+                    vm.friendId = user._id;
+
+
                     vm.friend_followers = vm.friend.followers;
                     vm.followersCount = vm.friend_followers.length;
                     var followers = vm.friend_followers;
@@ -47,6 +62,7 @@
                         vm.following = true;
                         console.log(vm.following);
                     }
+
                     else {
                         vm.following = false;
                     }
@@ -78,6 +94,7 @@
 
                     }
                     else {
+                        vm.userId= user._id;
 
                         vm.logged = true;
 

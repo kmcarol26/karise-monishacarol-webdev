@@ -6,23 +6,12 @@
         .module("WebAppMaker")
         .controller("ProfileController", profileController);
 
-    function profileController($routeParams,$location, UserService,$rootScope) {//$routeParams is a map of all the URL attributes
-console.log("HI");
+    function profileController($routeParams,$location, UserService) {//$routeParams is a map of all the URL attributes
+
         //assigning to vm makes the RHS available on the templates
         var vm = this;
         vm.updateUser = updateUser;
         vm.deleteUser = deleteUser;
-        vm.logout = logout;
-
-        function logout() {
-            UserService
-                .logout()
-                .then(
-                    function (response) {
-                        $rootScope.currentUser = null;
-                        $location.url("/login");
-                    });
-        }
 
 
         function init() {

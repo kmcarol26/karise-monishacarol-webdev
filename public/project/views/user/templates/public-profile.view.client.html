@@ -1,8 +1,13 @@
+
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="header-nightsky">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
-                <a  class="navbar-brand" href="#/user/model.userId/home">Muse</a>
+                <div class="navbar-text pull-left">
+                    <a href="#/user/model.userId/home">
+                        <span style="font-size: 50px; color:white"class="glyphicon glyphicon-chevron-left "></span>
+                    </a>
+                </div>
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="icon-bar"></span>
@@ -16,26 +21,14 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
 
                     <ul class="nav navbar-nav navbar-right">
-
-
-                        <li ng-if="model.logged == true"><a href="" ng-click="model.logout()" >Logout</a></li>
-                        <li ng-if="model.logged == true" class="visible-xs" class="dropdown">
+                        <li><a href="#/user/profile"  >PROFILE</a></li>
+                        <li><a href="" ng-click="model.logout()" >LOGOUT</a></li>
+                        <li class="visible-xs" class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
                             <ul class="dropdown-menu">
+                                <li><a href="#/user/profile"  >Profile</a></li>
 
                                 <li><a href="" ng-click="model.logout()" >Logout</a></li>
-
-                            </ul>
-                        </li>
-
-                        <li ng-if="model.logged == false"><a href="#/signup"  >Sign Up</a></li>
-                        <li ng-if="model.logged == false"><a href="#/login"  >Login</a></li>
-                        <li ng-if="model.logged == false" class="visible-xs" class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-
-                                <li ><a href="# /signup"  >Sign Up</a></li>
-                                <li ><a href="#/login"  >Login</a></li>
 
                             </ul>
                         </li>
@@ -57,13 +50,15 @@
                 </div>
                 <div class="col-xs-12 col-lg-9 ">
                 <div class="fb-profile-text">
+
                 <h1>{{model.friend.firstName}} {{model.friend.lastName}}</h1>
 
             </div>
                 <div>
                   <b>  {{model.followersCount}} followers </b>
+
                 </div>
-            <div class="container" id="top-pad-5">
+            <div ng-if="model.self == false" class="container" id="top-pad-5">
                 <span ng-if="model.following == false">
                 <button  class="btn btn-success" ng-click="model.follow()">Follow</button>
                     </span>

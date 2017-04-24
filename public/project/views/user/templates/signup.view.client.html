@@ -1,8 +1,19 @@
+<head> <style>
+    .ng-submitted .ng-invalid {
+        border:1px solid tomato;
+    }
+</style>
+</head>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="header-nightsky">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
-                <a  class="navbar-brand" href="#/">Muse</a>
+                <div class="navbar-text pull-left">
+                    <a href="#/user/model.userId/home">
+                        <span style="font-size: 50px; color:white"class="glyphicon glyphicon-chevron-left "></span>
+                    </a>
+                </div>
+                <a  class="navbar-brand" href="#/user/model.userId/home">Home</a>
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="icon-bar"></span>
@@ -16,17 +27,26 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
 
                     <ul class="nav navbar-nav navbar-right">
+                        <li ng-if="model.logged == true"><a href="#/user/profile"  >PROFILE</a></li>
 
-
-
-                        <li><a href="#/signup" >Sign Up</a></li>
-                        <!--     <li><a href="" ng-click="model.deleteUser(model.user)">Deactivate Account</a></li>-->
-                        <li><a href="#/login" >Login</a></li>
-                        <li class="visible-xs" class="dropdown">
+                        <li ng-if="model.logged == true"><a href="" ng-click="model.logout()" >LOGOUT</a></li>
+                        <li ng-if="model.logged == true" class="visible-xs" class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#/signup" >Sign Up</a></li>
-                                <li><a href="#/login" >Login</a></li>
+
+                                <li><a href="" ng-click="model.logout()" >Logout</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li ng-if="model.logged == false"><a href="#/signup"  >SIGN UP</a></li>
+                        <li ng-if="model.logged == false"><a href="#/login"  >LOGIN</a></li>
+                        <li ng-if="model.logged == false" class="visible-xs" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+
+                                <li ><a href="#/signup"  >Sign Up</a></li>
+                                <li ><a href="#/login"  >Login</a></li>
 
                             </ul>
                         </li>
@@ -40,7 +60,7 @@
 
 
 
-<div id="top-pad"class="container-fluid">
+<div id="top-pad-album  "class="container-fluid">
     <div class="row">
         <div class="container">
 
@@ -54,7 +74,7 @@
             {{model.error}}
         </div>
             </div>
-        <h3 class="col-sm-offset-3 col-sm-6">Signup</h3>
+        <h3 class="col-sm-offset-3 col-sm-6" style="font-family:'Bradley Hand ITC' ;font-weight: bold;font-size:50px ">Signup</h3>
 
     </div>
     <div class="row">
@@ -63,7 +83,7 @@
         </div>
         <div class="col-sm-6">
 
-            <form  accept-charset="utf-8" class="form" role="form">
+            <form name="form"  accept-charset="utf-8" class="form" role="form" novalidate>
                 <div class="row">
 
                     <div class="col-xs-6 col-md-6">
@@ -74,27 +94,33 @@
                         <input ng-model="user.lastName" type="text" name="lastname" value=""
                                class="form-control input-lg" placeholder="Last Name"  /></div>
                 </div>
-                <input ng-model="user.email"type="text" name="email" value="" class="form-control input-lg"
+                <input  type="email" ng-model="user.email"type="text" name="email" value="" class="form-control input-lg"
                        placeholder="Your Email"  />
 
                 <input ng-model="user.username"type="text" name="username" value="" class="form-control input-lg"
-                       placeholder="Your Username"  />
+                       placeholder="Your Username"  required />
+                <span id="warning" ng-if="form.$submitted && form.username.$error.required">Username is required</span>
                 <input ng-model="user.password" type="password" name="password" value="" class="form-control input-lg"
-                       placeholder="Password"  />
-               <!-- <input ng-model="user.verifyPassword" type="password" name="confirm_password" value=""
-                       class="form-control input-lg" placeholder="Confirm Password"  />-->
-                <label>Birth Date</label>
+                       placeholder="Password" required  />
+                <span  id="warning" ng-if="form.$submitted && form.password.$error.required">Password is required</span>
+               <input ng-model="user.verifyPassword" type="password" name="confirm_password" value=""
+                       class="form-control input-lg" placeholder="Confirm Password" required  />
+                <span  id="warning" ng-if="form.$submitted && form.verifyPassword.$error.required">Re-enter your password here</span>
+                <div>
+                <label>Birth Date</label></div>
                 <div class="row">
                     <div class="col-xs-4 col-md-4">
-                        <select ng-model="user.month" name="month" class = "form-control input-lg">
+                        <select ng-model="user.month" name="month" class = "form-control input-lg" required>
                             <option value="01">Jan</option><option value="02">Feb</option><option value="03">Mar</option>
                             <option value="04">Apr</option><option value="05">May</option><option value="06">Jun</option>
                             <option value="07">Jul</option><option value="08">Aug</option><option value="09">Sep</option>
                             <option value="10">Oct</option><option value="11">Nov</option><option value="12">Dec</option>
                         </select>
+                        <span  id="warning" ng-if="form.$submitted && (form.month.$error.required ||form.day.$error.required ||form.year.$error.required)">Birthday required</span>
+
                     </div>
                     <div class="col-xs-4 col-md-4">
-                        <select ng-model="user.day" name="day" class = "form-control input-lg">
+                        <select ng-model="user.day" name="day" class = "form-control input-lg" required>
                             <option value="1">1</option><option value="2">2</option><option value="3">3</option>
                             <option value="4">4</option><option value="5">5</option><option value="6">6</option>
                             <option value="7">7</option><option value="8">8</option><option value="9">9</option>
@@ -108,7 +134,19 @@
                         </select>
                     </div>
                     <div class="col-xs-4 col-md-4">
-                        <select ng-model="user.year" name="year" class = "form-control input-lg">
+                        <select ng-model="user.year" name="year" class = "form-control input-lg" required>
+                            <option value="2001">1977</option><option value="2002">1978</option>
+                            <option value="2003">1979</option><option value="2004">1980</option>
+                            <option value="2005">1981</option><option value="2006">1982</option>
+                            <option value="2007">1983</option><option value="2008">1984</option>
+                            <option value="2009">1985</option><option value="2010">1986</option>
+                            <option value="2011">1987</option><option value="2012">1988</option>
+                            <option value="2001">1989</option><option value="2002">1990</option>
+                            <option value="2003">1991</option><option value="2004">1992</option>
+                            <option value="2005">1993</option><option value="2006">1994</option>
+                            <option value="2007">1995</option><option value="2008">1996</option>
+                            <option value="2009">1997</option><option value="2010">1998</option>
+                            <option value="2011">1999</option><option value="2012">2000</option>
                             <option value="2001">2001</option><option value="2002">2002</option>
                             <option value="2003">2003</option><option value="2004">2004</option>
                             <option value="2005">2005</option><option value="2006">2006</option>
@@ -118,7 +156,9 @@
                             <option value="2013">2013</option>
                         </select>
 
+
                     </div>
+
                     </br/>
                     </br/>
                 </div>
@@ -132,21 +172,7 @@
                 <br />
                 <br/>
 
-              <!--  <label>How would you describe yourself? </label>
-            <br/>
-                <label class="radio-inline">
-                    <input ng-model="user.role" type="radio" name="role" value="Artist" id=artist />I'm an Arist
-                </label>
-                <label class="radio-inline">
-                    <input ng-model="user.role" type="radio" name="role" value="Listener" id=listener />I'm a Music Lover
-                </label>
-                <br />
-                <br />-->
 
-             <!--   <input ng-model="user.searchStr" type="text" name="searchStr" value=""
-                class="form-control input-lg" placeholder="Search"  />
-               <button class="btn btn-lg btn-primary btn-block" type="submit"
-                        ng-click="model.search(user)">Sign Up</button> -->
                 <span class="help-block">By clicking Create my account, you agree to our Terms and that you have read
                     our Data Use Policy, including our Cookie Use.</span>
                 <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit"

@@ -25,17 +25,10 @@
         //api is a json map of the CRUD operations
 
         function createPage(websiteId, page) {
-            console.log("client");
             return $http.post("/api/website/"+websiteId+"/page",page)
                 .then(function(response){
-                    console.log("page client");
-                    console.log(response);
                     return response.data;
-                },function (err){
-                    console.log(err);
-                }
-
-            );
+                });
         }
         function deletePage(pageId) {
             return $http.delete("/api/page/"+pageId)

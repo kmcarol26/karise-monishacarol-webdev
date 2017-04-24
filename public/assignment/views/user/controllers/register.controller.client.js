@@ -9,7 +9,7 @@
         .module("WebAppMaker")
         .controller("RegisterController", registerController);
 
-    function registerController($routeParams, $location, UserService,$rootScope) {//$routeParams is a map of all the URL attributes
+    function registerController($routeParams, $location, UserService) {//$routeParams is a map of all the URL attributes
 
         //assigning to vm makes the RHS available on the templates
         var vm = this;
@@ -33,15 +33,6 @@
             console.log("regi contr");
 
             UserService
-                .register(user)
-                .then(
-                    function(response) {
-                        var user = response.data;
-                        $rootScope.currentUser = user;
-                        $location.url("/user/"+user._id);
-                    });
-/*
-            UserService
                 .findUserByUsername(user.username)
                 .then(function(user){
                     vm.message= " Username already taken";
@@ -59,7 +50,7 @@
                     });
 
 
-            });*/
+            });
         }
 
     }

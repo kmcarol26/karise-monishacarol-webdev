@@ -15,11 +15,6 @@
                 controllerAs: "model"
 
             })
-            .when("/user/:uid/search", {
-            templateUrl: "views/user/templates/search.view.client.html",
-            controller: "SearchController",
-            controllerAs: "model"
-             })
 
             .when("/user/:uid/friends", {
              templateUrl: "views/user/templates/friends.view.client.html",
@@ -41,7 +36,8 @@
             .when("/login", {   //when u see a #/login,fetch the templateUr user/login
                 templateUrl: "views/user/templates/login.view.client.html",
                 controller: "LoginController", //Name of Controller is LoginCOntroller
-                controllerAs: "model" // Within the template, we can now refer to the controller as model
+                controllerAs: "model"
+
             })
             .when("/signup", {
                 templateUrl: "views/user/templates/signup.view.client.html",
@@ -50,11 +46,6 @@
             })
 
 
-            .when("/user/:uid/friends/:fid", {
-                templateUrl: "views/user/templates/public-profile.view.client.html",
-                controller: "PublicProfileController",
-                controllerAs: "model"
-            })
             .when("/admin", {
                 templateUrl: "views/admin/templates/admin.view.client.html",
                 resolve:{
@@ -72,6 +63,12 @@
                     currentUser:checkLogin
                 }
 
+            })
+
+            .when("/user/:uid/friends/:fid", {
+                templateUrl: "views/user/templates/public-profile.view.client.html",
+                controller: "PublicProfileController",
+                controllerAs: "model"
             })
             .otherwise({
                 redirectTo:'/'

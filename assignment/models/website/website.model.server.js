@@ -3,7 +3,6 @@
  */
 module.exports = function(){
     var model = {};
-    var q = require("q");
     var mongoose = require("mongoose");
     var websiteSchema = require("./website.schema.server.js")();
     var websiteModel = mongoose.model("websiteModel",websiteSchema);
@@ -20,27 +19,16 @@ module.exports = function(){
 
 
     function deleteWebsite(websiteId){
-        var deferred =  q.defer();
 
         console.log("delete model website");
-         websiteModel.remove({
+        return websiteModel.remove({
             _id : websiteId
-        },function(err,website){
-             if (err){
-                 deferred.reject(err);
-             }
-             else{
-                 deferred.resolve(website);}
-
-         });
-
-        return deferred.promise;
+        })
     }
 
     function updateWebsite(websiteId,website){
-        var deferred =  q.defer();
         console.log("in website model update");
-         websiteModel.update(
+        return websiteModel.update(
             {
                 _id : websiteId
             },
@@ -49,65 +37,32 @@ module.exports = function(){
                 description : website.description
 
             }
-        ) .then(function (website,err) {
-             if(err){
-                 deferred.reject(err);
-             }
-             else{
-                 deferred.resolve(website);
-             }
-
-         });
-        return deferred.promise;
+        )
 
 
     }
     function findWebsiteById(websiteId){
-        var deferred =  q.defer();
-         websiteModel.findById(websiteId,function ( err,website) {
-             if(err){
-                 //console.log(err);
-                 deferred.reject(err);
-
-             }
-
-             else{
-                 deferred.resolve(website);}
-
-
-         });
-        return deferred.promise;
+        return websiteModel.findById(websiteId);
 
     }
 
     function findWebsitesByUser(userId){
-        var deferred =  q.defer();
-         websiteModel.find({"_user":userId},
+        return websiteModel.find({"_user":userId},
             function(err, result){
                 if(err){
-                    deferred.reject(err);
                 }
                 if(result){
-                    deferred.resolve(result);
+                    return result;
                 }
-               // else{
-                //    return err;}
-            });
-        return deferred.promise;}
+                else{
+                    return err;}
+            });}
 
 
     function createWebsite(userId,website) {
         website._user=userId;
-        var deferred =  q.defer();
 
-         websiteModel.create(website, function(err, website){
-             if (err){
-                 deferred.reject(err);
-             }
-             else{
-                 deferred.resolve(website);}
-         });
-        return deferred.promise;
+        return websiteModel.create(website);
     }
 
     function setModel(_model) {
