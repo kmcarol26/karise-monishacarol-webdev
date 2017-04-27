@@ -7,8 +7,6 @@
         var vm = this;
         vm.doYouTrustUrl = doYouTrustUrl;
         vm.reorderWidget=reorderWidget;
-        vm.doYouTrustHtml=doYouTrustHtml;
-
         vm.userId = $routeParams.uid;
         vm.websiteId = $routeParams.wid;
         vm.pageId = $routeParams.pid;
@@ -18,9 +16,8 @@
                         WidgetService
                             .findAllWidgetsForPage(vm.pageId)
                             .then(function(widgets){
-                    //vm.widgets=widgets;
+                    vm.widgets=widgets;
                     //console.log(vm.widgets);
-                                vm.widgets=widgets.sort(widgetCompare);
                     console.log("inside widget controller");
                                 console.log(vm.widgets);
                     });} init();
@@ -48,14 +45,6 @@
                         //vm.widgets=response;
                         // init();
                     });
-        }
-
-        function widgetCompare(widget1,widget2) {
-            if (widget1.order < widget2.order)
-                return -1;
-            if (widget1.order > widget2.order)
-                return 1;
-            return 0;
         }
     }
 })();

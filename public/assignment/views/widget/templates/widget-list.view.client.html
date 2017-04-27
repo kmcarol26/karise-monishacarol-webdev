@@ -52,8 +52,8 @@
                         allowfullscreen></iframe>
                 <!--  {{widget.width}}-->
             </div>
-            <div ng-switch-when="HTML" >
-               <div ng-bind-html="model.doYouTrustHtml(widget.text)"></div>
+            <div ng-switch-when="HTML" ng-bind-html="model.doYouTrustHtml(widget.text)">
+                {{widget.text}}
 
             </div>
 

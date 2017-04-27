@@ -18,13 +18,20 @@
         vm.login = login;
 
         function login(user) {
+
+           if(user ==null || user.password == null || user.username == "" ){
+
+                vm.error = "Please enter your credentials";
+            }
+
+            else{
             UserService
                 .userlogin(user)
                 .then(
                     function(user) {
 
                         if (user) {
-                            console.log("back login controller");
+
                              $location.url("/");
                         }
 },
@@ -37,6 +44,6 @@
                     }
                 );
 
-        }
+        }}
 
     }})();

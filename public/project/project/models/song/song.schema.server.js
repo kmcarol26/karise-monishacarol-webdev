@@ -9,6 +9,7 @@ module.exports = function(){
         albumName:String,
         artists : {type:Array,"default":[]}
 
+
     }, {collection: 'project.songs'});
     return SongSchema;
 
